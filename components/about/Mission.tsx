@@ -24,16 +24,15 @@ export function Mission() {
     <section className="bg-background">
       <div className="container">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
-          {/* Left — image with camera overlay */}
-          <div className="">
-            {/* Floating camera icon */}
+          {/* Left — camera image centered */}
+          <div className="relative flex items-center justify-center">
             <Image
               src="/vintage-camera-on-tripod-3d-illustration.png"
-              alt=""
-              width={120}
-              height={120}
-              className="absolute h-full w-full"
-              aria-hidden
+              alt="Vintage camera on tripod"
+              width={640}
+              height={640}
+              className="h-full w-full object-contain"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
 
