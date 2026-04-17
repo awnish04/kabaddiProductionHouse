@@ -2,10 +2,10 @@ import type { Metadata } from "next"
 import { Playfair_Display, Plus_Jakarta_Sans, Mukta } from "next/font/google"
 
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
 import { cn } from "@/lib/utils"
+import { ThemeProvider } from "@/components/shared/theme-provider"
+import { Navbar } from "@/components/shared/navbar"
+import { Footer } from "@/components/shared/footer"
 
 /* ── Headings: literary & high-end ─────────────────────────────── */
 const playfair = Playfair_Display({
@@ -53,9 +53,9 @@ export default function RootLayout({
     >
       <body suppressHydrationWarning>
         <ThemeProvider>
-          <Navbar />
+          <Navbar/>
           <main className="flex-1">{children}</main>
-          <Footer />
+          <Footer/>
         </ThemeProvider>
       </body>
     </html>
