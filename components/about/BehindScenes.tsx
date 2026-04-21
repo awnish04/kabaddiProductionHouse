@@ -94,7 +94,7 @@ export function BehindScenes() {
   return (
     <section className="section bg-secondary">
       <div className="container">
-        <div className="mb-12 flex flex-col gap-4 text-center">
+        <div className="mb-12 flex flex-col gap-2 text-center">
           <h2 className="text-foreground">BEHIND THE SCENES INSIGHTS</h2>
           <p className="mx-auto max-w-3xl text-base text-muted-foreground md:text-lg">
             Witness the enchantment unfold as creativity meets craftsmanship in

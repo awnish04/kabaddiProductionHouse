@@ -138,19 +138,26 @@ export function AllFilmsGrid({ films }: AllFilmsGridProps) {
                               href={film.fullMovieUrl}
                               target="_blank"
                               rel="noopener noreferrer"
+                              className="flex items-center justify-center gap-1"
                             >
                               <Play className="h-4 w-4" />
-                              Watch Now
+                              Watch
                             </Link>
                           </Button>
                         )}
+
                         <Button
                           asChild
                           size="sm"
                           variant="outline"
                           className="flex-1"
                         >
-                          <Link href={`/films/${film.slug}`}>View Details</Link>
+                          <Link
+                            href={`/films/${film.slug}`}
+                            className="flex items-center justify-center"
+                          >
+                            Details
+                          </Link>
                         </Button>
                       </div>
                     </div>

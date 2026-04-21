@@ -269,11 +269,11 @@ export function ComingSoon() {
           ))}
         </div>
 
-        <div className="mt-8 flex justify-center px-4 sm:px-0">
+        <div className="mt-8 flex justify-center">
           <Button
             asChild
             size="lg"
-            className="bg-accent text-accent-foreground hover:bg-accent/90"
+            className="w-full sm:w-auto sm:min-w-[220px]"
           >
             <Link href="/films">View All Films</Link>
           </Button>

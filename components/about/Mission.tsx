@@ -38,7 +38,7 @@ export function Mission() {
           </div>
 
           {/* Right — mission text */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-2">
             <span className="label text-primary">Our Mission</span>
             <h2>
               To preserve and promote the diverse cultural identities of Nepal

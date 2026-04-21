@@ -37,7 +37,7 @@ export function Director() {
           </div>
 
           {/* Bio + filmography */}
-          <div className="flex flex-col gap-6 lg:col-span-2">
+          <div className="flex flex-col gap-2 lg:col-span-2">
             <p className="text-muted-foreground">
               A celebrated poet, lyricist, and filmmaker from Panchthar, Upendra
               Subba is a leading figure of the <em>Srijanshil Arajakta</em>{" "}

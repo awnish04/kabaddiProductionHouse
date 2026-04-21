@@ -62,7 +62,7 @@ export default async function FilmDetailsPage({
   return (
     <main>
       {/* Hero Banner Section - Full Screen */}
-      <section className="relative h-screen overflow-hidden bg-background">
+      <section className="relative min-h-[90vh] overflow-hidden bg-background md:min-h-screen">
         {/* Background Image */}
         <Image
           src={film.banner}
@@ -76,14 +76,12 @@ export default async function FilmDetailsPage({
         <div className="absolute inset-0 bg-linear-to-r from-black/90 via-black/60 to-transparent" />
 
         {/* Content */}
-        <div className="relative z-10 container flex h-full items-center">
-          <div className="max-w-2xl space-y-6 text-white">
-            <h1 className="text-5xl font-bold text-white md:text-6xl">
-              {film.title}
-            </h1>
+        <div className="relative z-10 container flex h-full items-center px-4 sm:px-6">
+          <div className="max-w-xl space-y-5 text-white sm:max-w-2xl sm:space-y-6">
+            <h1 className="text-white">{film.title}</h1>
 
             {/* Director & Cast with Avatars */}
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               {/* Director */}
               {director && (
                 <div className="flex items-center gap-2">
@@ -175,11 +173,9 @@ export default async function FilmDetailsPage({
               ))}
             </div>
 
-            <p className="text-lg leading-relaxed text-white/90">
-              {film.fullDescription}
-            </p>
+            <p className="text-white/90">{film.fullDescription}</p>
 
-            <div className="flex gap-4">
+            <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
               <Button
                 asChild
                 size="lg"
@@ -218,7 +214,7 @@ export default async function FilmDetailsPage({
             </div>
 
             {/* Trailers Section */}
-            <div className="grid grid-cols-2 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
               {film.trailers.map((trailer, idx) => (
                 <Card
                   key={idx}
@@ -245,37 +241,11 @@ export default async function FilmDetailsPage({
         </div>
       </section>
 
-      {/* Cast & Crew Section */}
-      {/* <section className="section bg-muted/30">
-        <div className="container">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-            <div>
-              <h2 className="mb-6">Crew</h2>
-              <div className="space-y-4">
-                {film.crew.map((member, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center justify-between border-b border-border pb-3"
-                  >
-                    <div>
-                      <p className="font-semibold">{member.name}</p>
-                      <p className="text-sm text-muted-foreground">
-                        {member.role}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
       {/* Gallery Section */}
-      <section className="section bg-background">
+      <section className="bg-background py-12 sm:py-16 lg:py-20">
         <div className="container">
           <h2 className="mb-8">Gallery</h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
             {film.gallery.map((image, idx) => (
               <div
                 key={idx}
@@ -296,7 +266,7 @@ export default async function FilmDetailsPage({
 
       {/* Back to Films */}
       <section className="section bg-muted/30">
-        <div className="container text-center">
+        <div className="container px-4 text-center">
           <Button asChild size="lg" variant="outline">
             <Link href="/films">← Back to All Films</Link>
           </Button>

@@ -13,7 +13,7 @@ export function DirectorSpotlight() {
           src="/film-vintage-negatives.png"
           alt=""
           fill
-          className="h-full w-full object-cover opacity-15"
+          className="h-full w-full object-cover opacity-20"
           sizes="100vw"
         />
       </div>
@@ -34,7 +34,7 @@ export function DirectorSpotlight() {
             </AspectRatio>
           </Card>
           {/* Right — text */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-2">
             <span className="label text-primary">Behind the Scenes</span>
             <h2>Where stories come to life</h2>
             <p className="text-muted-foreground">
@@ -44,16 +44,26 @@ export function DirectorSpotlight() {
               craftsmanship, discover how authentic Nepali stories are brought
               to life on the big screen.
             </p>
-            <div className="flex flex-wrap gap-3">
-              <Button asChild size="lg" variant="outline">
-                <Link href="/about">Meet the Team</Link>
-              </Button>
+            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <Button
                 asChild
                 size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90"
+                className="w-full text-accent-foreground hover:bg-accent/90 sm:flex-1"
               >
-                <Link href="/films">Explore Our Films</Link>
+                <Link href="/about" className="w-full text-center">
+                  Meet the Team
+                </Link>
+              </Button>
+
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="w-full bg-white text-accent sm:flex-1"
+              >
+                <Link href="/films" className="w-full text-center">
+                  Explore Our Films
+                </Link>
               </Button>
             </div>
           </div>

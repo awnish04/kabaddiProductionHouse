@@ -90,13 +90,16 @@ export function NowShowingHero({ film }: NowShowingHeroProps) {
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex flex-col gap-3 pt-4 sm:flex-row">
               <Button
                 asChild
                 size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90"
+                className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:flex-1"
               >
-                <Link href={`/films/${film.slug}`}>
+                <Link
+                  href={`/films/${film.slug}`}
+                  className="flex w-full items-center justify-center gap-2"
+                >
                   <FilmIcon className="h-5 w-5" />
                   View Details
                 </Link>
@@ -106,10 +109,14 @@ export function NowShowingHero({ film }: NowShowingHeroProps) {
                 asChild
                 size="lg"
                 variant="outline"
-                className="text-white"
+                className="w-full border-white/30 text-white sm:flex-1"
               >
-                <Link href="https://www.youtube.com/watch?v=_wGYG3sKHgQ">
-                  <Play className="h-5 w-5" /> Watch Trailer
+                <Link
+                  href="https://www.youtube.com/watch?v=_wGYG3sKHgQ"
+                  className="flex w-full items-center justify-center gap-2"
+                >
+                  <Play className="h-5 w-5" />
+                  Watch Trailer
                 </Link>
               </Button>
             </div>
