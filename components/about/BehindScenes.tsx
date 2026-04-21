@@ -94,16 +94,17 @@ export function BehindScenes() {
   return (
     <section className="section bg-secondary">
       <div className="container">
-        <div className="mb-12 flex flex-col gap-2 text-center">
+        {/* Header */}
+        <div className="mb-10 flex flex-col gap-3 text-center sm:mb-12">
           <h2 className="text-foreground">BEHIND THE SCENES INSIGHTS</h2>
-          <p className="mx-auto max-w-3xl text-base text-muted-foreground md:text-lg">
-            Witness the enchantment unfold as creativity meets craftsmanship in
-            the birth of cinematic magic. Explore whimsical sets, intricate
-            costumes, and innovative cinematography, each detail contributing to
-            the magic that brings the story to life.
+
+          <p className="mx-auto max-w-3xl text-sm text-muted-foreground sm:text-base lg:text-lg">
+            Witness the enchantment of cinematic creation — where every frame,
+            costume, and light setup becomes part of storytelling magic.
           </p>
         </div>
 
+        {/* Grid */}
         <BentoGrid>
           {BEHIND_SCENES_FEATURES.map((feature, idx) => (
             <BentoCard key={idx} {...feature} />

@@ -44,26 +44,16 @@ export function DirectorSpotlight() {
               craftsmanship, discover how authentic Nepali stories are brought
               to life on the big screen.
             </p>
-            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="w-full text-accent-foreground hover:bg-accent/90 sm:flex-1"
-              >
-                <Link href="/about" className="w-full text-center">
+
+            <div className="flex w-full flex-col gap-3 sm:flex-row">
+              <Button asChild size="lg" className="bg-accent">
+                <Link href="/about" className="flex items-center gap-2">
                   Meet the Team
                 </Link>
               </Button>
 
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="w-full bg-white text-accent sm:flex-1"
-              >
-                <Link href="/films" className="w-full text-center">
-                  Explore Our Films
-                </Link>
+              <Button asChild size="lg" variant="outline">
+                <Link href="/films">Explore Our Films</Link>
               </Button>
             </div>
           </div>

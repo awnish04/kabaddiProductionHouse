@@ -39,18 +39,20 @@ export function Director() {
           {/* Bio + filmography */}
           <div className="flex flex-col gap-2 lg:col-span-2">
             <p className="text-muted-foreground">
+              {" "}
               A celebrated poet, lyricist, and filmmaker from Panchthar, Upendra
               Subba is a leading figure of the <em>Srijanshil Arajakta</em>{" "}
               (Creative Anarchy) literary movement. His transition to directing
               with <strong>Jaari</strong> has redefined the commercial potential
               of ethnic cinema in Nepal, proving that authentic indigenous
-              stories can dominate the box office.
+              stories can dominate the box office.{" "}
             </p>
             <p className="text-muted-foreground">
+              {" "}
               As the lead writer of the Kabaddi franchise (1–4), he shaped the
               legendary character &ldquo;Kaji&rdquo; — a cultural icon in
               Nepalese popular cinema. His work bridges literary depth with
-              cinematic accessibility.
+              cinematic accessibility.{" "}
             </p>
 
             <Separator />

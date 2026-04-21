@@ -18,14 +18,14 @@ export function AllFilmsGrid({ films }: AllFilmsGridProps) {
   const comingSoonFilms = films.filter((film) => !film.isReleased)
 
   return (
-    <section className="section bg-background">
-      <div className="container space-y-16">
+    <section className="bg-background">
+      <div className="container w-full space-y-16">
         {/* Released Films Section */}
         {releasedFilms.length > 0 && (
           <div>
             <div className="mb-12 text-center">
-              <h2 className="mb-4">Available to Watch</h2>
-              <p className="mx-auto max-w-2xl text-center text-muted-foreground">
+              <h2>Available to Watch</h2>
+              <p className="lead mx-auto max-w-2xl text-center">
                 Watch our released films and experience authentic Nepali cinema.
               </p>
             </div>
@@ -172,8 +172,8 @@ export function AllFilmsGrid({ films }: AllFilmsGridProps) {
         {comingSoonFilms.length > 0 && (
           <div>
             <div className="mb-12 text-center">
-              <h2 className="mb-4">Coming Soon</h2>
-              <p className="mx-auto max-w-2xl text-center text-muted-foreground">
+              <h2>Coming Soon</h2>
+              <p className="lead mx-auto max-w-2xl text-center">
                 Upcoming releases that will continue our legacy of authentic
                 storytelling.
               </p>

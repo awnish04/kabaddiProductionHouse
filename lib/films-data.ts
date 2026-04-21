@@ -43,7 +43,7 @@ export const FILMS_DATA: Film[] = [
     synopsis:
       "A groundbreaking drama exploring the Jaari tradition within the Limbu community. An all-time blockbuster.",
     fullDescription:
-      '"Jaari" begins 10 years after the dramatic events where the Limbu community faces their greatest challenge—the preservation of cultural traditions in modern times. The film explores the ancient Jaari tradition, a unique cultural practice that defines relationships and community bonds in the Limbu society of eastern Nepal.',
+      '"Jaari" begins 10 years after the dramatic events where the Limbu community faces their greatest challenge the preservation of cultural traditions in modern times. The film explores the ancient Jaari tradition, a unique cultural practice that defines relationships and community bonds in the Limbu society of eastern Nepal.',
     badge: "Blockbuster",
     poster: "/Jaari_2023_1.jpg",
     posterAlt: "/Jaari_2023_2.jpg",

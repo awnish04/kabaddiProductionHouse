@@ -209,21 +209,12 @@ export function Hero() {
             </p>
 
             {/* BUTTON FIX (important) */}
-            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="w-full text-accent-foreground hover:bg-accent/90 sm:flex-1"
-              >
+            <div className="flex w-full flex-col gap-3 sm:flex-row">
+              <Button asChild size="lg" className="bg-accent">
                 <Link href="/films">Explore Films</Link>
               </Button>
 
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="w-full text-white sm:flex-1"
-              >
+              <Button asChild size="lg" variant="outline">
                 <Link href="/about">Our Story</Link>
               </Button>
             </div>

@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Play, Clock, Film as FilmIcon } from "lucide-react"
+import { Clock, Film as FilmIcon } from "lucide-react"
 import type { Film } from "@/lib/films-data"
 
 interface NowShowingHeroProps {
@@ -11,7 +11,7 @@ interface NowShowingHeroProps {
 
 export function NowShowingHero({ film }: NowShowingHeroProps) {
   return (
-    <section className="relative h-screen overflow-hidden bg-background">
+    <section className="hero">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -20,7 +20,7 @@ export function NowShowingHero({ film }: NowShowingHeroProps) {
           fill
           className="object-cover"
           priority
-          sizes="100vw"
+          // sizes="100vw"
         />
         {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-black/75" />
@@ -29,19 +29,17 @@ export function NowShowingHero({ film }: NowShowingHeroProps) {
       {/* Content */}
       <div className="relative z-10 container flex h-full items-center">
         <div className="w-full">
-          <div className="max-w-3xl space-y-6 text-white">
+          <div className="max-w-3xl space-y-4 text-white">
             {/* Badge */}
-            <Badge className="bg-accent px-4 py-1.5 text-sm text-accent-foreground">
+            <Badge className="label bg-accent text-accent-foreground">
               {film.badge}
             </Badge>
 
             {/* Title */}
-            <h1 className="text-5xl font-bold text-white drop-shadow-lg md:text-6xl lg:text-7xl">
-              {film.title}
-            </h1>
+            <h1 className="text-white drop-shadow-lg">{film.title}</h1>
 
             {/* Meta Info */}
-            <div className="flex flex-wrap items-center gap-3 text-sm">
+            <div className="label flex flex-wrap items-center gap-3 text-white/80">
               <span className="font-medium">{film.year}</span>
               <span className="text-white/40">•</span>
               {film.runtime && (
@@ -85,38 +83,18 @@ export function NowShowingHero({ film }: NowShowingHeroProps) {
             </div>
 
             {/* Synopsis */}
-            <p className="max-w-2xl text-lg leading-relaxed text-white/90">
-              {film.synopsis}
-            </p>
+            <p className="lead max-w-2xl text-white/90">{film.synopsis}</p>
 
             {/* CTAs */}
-            <div className="flex flex-col gap-3 pt-4 sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:flex-1"
-              >
+
+            <div className="flex w-full flex-col gap-3 sm:flex-row">
+              <Button asChild size="lg" className="bg-accent">
                 <Link
                   href={`/films/${film.slug}`}
-                  className="flex w-full items-center justify-center gap-2"
+                  className="flex items-center gap-2"
                 >
                   <FilmIcon className="h-5 w-5" />
                   View Details
-                </Link>
-              </Button>
-
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="w-full border-white/30 text-white sm:flex-1"
-              >
-                <Link
-                  href="https://www.youtube.com/watch?v=_wGYG3sKHgQ"
-                  className="flex w-full items-center justify-center gap-2"
-                >
-                  <Play className="h-5 w-5" />
-                  Watch Trailer
                 </Link>
               </Button>
             </div>

@@ -23,7 +23,12 @@ const BentoGrid = ({ children, className, ...props }: BentoGridProps) => {
   return (
     <div
       className={cn(
-        "grid w-full auto-rows-[20rem] grid-cols-3 gap-4",
+        // 🔥 responsive grid fix
+        "grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3",
+
+        // 🔥 better adaptive height (instead of fixed 20rem)
+        "auto-rows-[minmax(14rem,auto)] sm:auto-rows-[16rem] lg:auto-rows-[20rem]",
+
         className
       )}
       {...props}
