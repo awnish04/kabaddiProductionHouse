@@ -8,7 +8,14 @@ export interface Film {
   fullDescription: string
   badge: string
   poster: string
+  posterAlt?: string // Alternative poster for hover effect
   banner: string
+  runtime?: string
+  contentRating?: string // PG, PG-13, R, etc.
+  quality?: string // HD, HDR, 4K, etc.
+  nowShowing?: boolean
+  isReleased?: boolean // true if movie is released and available to watch
+  fullMovieUrl?: string // YouTube URL for full movie (if available)
   trailers: {
     title: string
     thumbnail: string
@@ -39,19 +46,24 @@ export const FILMS_DATA: Film[] = [
       '"Jaari" begins 10 years after the dramatic events where the Limbu community faces their greatest challenge—the preservation of cultural traditions in modern times. The film explores the ancient Jaari tradition, a unique cultural practice that defines relationships and community bonds in the Limbu society of eastern Nepal.',
     badge: "Blockbuster",
     poster: "/Jaari_2023_1.jpg",
+    posterAlt: "/Jaari_2023_2.jpg",
     banner: "/Jaari_2023_Banner_1.webp",
+    runtime: "2h 15m",
+    contentRating: "PG-13",
+    quality: "HD",
+    nowShowing: false,
+    isReleased: true,
+    fullMovieUrl: "https://www.youtube.com/watch?v=5O3K8JXch1E", // Replace with actual full movie URL
     trailers: [
       {
-        title: "Official Trailer",
+        title: "Trailer",
         thumbnail: "/Jaari_2023_1.jpg",
-        videoUrl:
-          "https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb",
+        videoUrl: "https://www.youtube.com/watch?v=5O3K8JXch1E",
       },
       {
         title: "Teaser",
         thumbnail: "/Jaari_2023_2.jpg",
-        videoUrl:
-          "https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb",
+        videoUrl: "https://www.youtube.com/watch?v=4sx0nvVDYA8",
       },
     ],
     cast: [
@@ -78,13 +90,24 @@ export const FILMS_DATA: Film[] = [
       "Mansara delves deep into the complexities of ethnic identity, fertility struggles, and the migration crisis affecting Nepal's hill communities. Through intimate storytelling, the film portrays the challenges faced by families torn between tradition and modernity.",
     badge: "Now Showing",
     poster: "/Mansara_2024_1.jpg",
+    posterAlt: "/Mansara_2024_2.jpg",
     banner: "/Mansara_2024_Banner_1.jpg",
+    runtime: "2h 8m",
+    contentRating: "PG-13",
+    quality: "HD",
+    nowShowing: true,
+    isReleased: true,
+    fullMovieUrl: "https://www.youtube.com/watch?v=_wGYG3sKHgQ", // Replace with actual full movie URL
     trailers: [
       {
-        title: "Official Trailer",
+        title: "Trailer",
         thumbnail: "/Mansara_2024_1.jpg",
-        videoUrl:
-          "https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb",
+        videoUrl: "https://www.youtube.com/watch?v=_wGYG3sKHgQ",
+      },
+      {
+        title: "Teaser",
+        thumbnail: "/Mansara_2024_2.jpg",
+        videoUrl: "https://www.youtube.com/watch?v=C2j5IXIM7-0",
       },
     ],
     cast: [
@@ -110,19 +133,23 @@ export const FILMS_DATA: Film[] = [
       "The highly anticipated sequel to the blockbuster Jaari returns with an even more powerful narrative. Set against the backdrop of historical change, Jaari 2 explores the cultural significance of the Chyabrung drum and its role in preserving Limbu identity through generations.",
     badge: "Coming Soon",
     poster: "/Jaari-2_2025_1.jpg",
+    posterAlt: "/Jaari-2_2025_2.jpg",
     banner: "/Jaari-2_2025_Banner_1.webp",
+    runtime: "2h 20m",
+    contentRating: "PG-13",
+    quality: "4K",
+    nowShowing: false,
+    isReleased: false,
     trailers: [
       {
-        title: "Teaser Trailer",
+        title: "Trailer",
         thumbnail: "/Jaari-2_2025_1.jpg",
-        videoUrl:
-          "https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb",
+        videoUrl: "https://www.youtube.com/watch?v=qa7tHd560cE",
       },
       {
-        title: "Behind the Scenes",
+        title: "Teaser",
         thumbnail: "/Jaari-2_2025_2.jpg",
-        videoUrl:
-          "https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb",
+        videoUrl: "https://www.youtube.com/watch?v=Lk5klPgwbCc",
       },
     ],
     cast: [
@@ -148,25 +175,44 @@ export const FILMS_DATA: Film[] = [
       'The Kabaddi film series (2014-2023) revolutionized Nepali cinema with its authentic portrayal of rural life and the traditional sport of Kabaddi. Director Upendra Subba created the iconic character "Kaji," which became a cultural phenomenon and established new benchmarks for Nepali filmmaking.',
     badge: "Legacy",
     poster: "/Kabaddi_2014_1.jpg",
+    posterAlt: "/Kabaddi_2014_2.jpg",
     banner: "/Kabaddi_2014_Banner_1.jpg",
+    runtime: "2h 5m",
+    contentRating: "PG",
+    quality: "HD",
+    nowShowing: false,
+    isReleased: true,
+    fullMovieUrl: "https://www.youtube.com/watch?v=QPsblfsA_0w", // Replace with actual full movie URL
     trailers: [
       {
         title: "Kabaddi 4 Trailer",
-        thumbnail: "/Kabaddi_2014_1.jpg",
-        videoUrl:
-          "https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb",
+        thumbnail: "/Kabaddi_2022_1.jpg",
+        videoUrl: "https://www.youtube.com/watch?v=7WR3qzB40V8",
       },
       {
-        title: "Kabaddi 3 Trailer",
-        thumbnail: "/Kabaddi_2014_2.jpg",
-        videoUrl:
-          "https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb",
+        title: "Kabaddi 4 Teaser",
+        thumbnail: "/Kabaddi_2022_2.jpg",
+        videoUrl: "https://www.youtube.com/watch?v=aAFTcXtRvDg",
+      },
+      {
+        title: "Kabaddi Kabaddi Kabaddi Trailer",
+        thumbnail: "/Kabaddi_2019_1.jpg",
+        videoUrl: "https://www.youtube.com/watch?v=c4HswWvFzWY",
+      },
+      {
+        title: "Kabaddi Kabaddi Trailer",
+        thumbnail: "/Kabaddi_Kabaddi_2015_1.jpg",
+        videoUrl: "https://www.youtube.com/watch?v=_aqNQY5zfZQ",
+      },
+      {
+        title: "Kabaddi Kabaddi Teaser",
+        thumbnail: "/Kabaddi_Kabaddi_2015_2.jpg",
+        videoUrl: "https://www.youtube.com/watch?v=lrB8ojw0ah4",
       },
       {
         title: "Original Kabaddi",
         thumbnail: "/Kabaddi_2014_3.jpg",
-        videoUrl:
-          "https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb",
+        videoUrl: "https://www.youtube.com/watch?v=QPsblfsA_0w",
       },
     ],
     cast: [
@@ -192,4 +238,12 @@ export function getFilmBySlug(slug: string): Film | undefined {
 
 export function getAllFilmSlugs(): string[] {
   return FILMS_DATA.map((film) => film.slug)
+}
+
+export function getNowShowingFilm(): Film | undefined {
+  return FILMS_DATA.find((film) => film.nowShowing === true)
+}
+
+export function getAllFilms(): Film[] {
+  return FILMS_DATA
 }

@@ -62,7 +62,7 @@ export default async function FilmDetailsPage({
   return (
     <main>
       {/* Hero Banner Section - Full Screen */}
-      <section className="hero relative overflow-hidden bg-background">
+      <section className="relative h-screen overflow-hidden bg-background">
         {/* Background Image */}
         <Image
           src={film.banner}
@@ -195,12 +195,12 @@ export default async function FilmDetailsPage({
                 variant="outline"
                 className="text-white"
               >
-                <Link href="/about">Book Tickets</Link>
+                <Link href="#">Book Tickets</Link>
               </Button>
             </div>
 
             {/* Trailers Section */}
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-2 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {film.trailers.map((trailer, idx) => (
                 <Card
                   key={idx}

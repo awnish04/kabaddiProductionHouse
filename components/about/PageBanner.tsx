@@ -129,7 +129,7 @@ export function PageBanner({
   return (
     <>
       {/* ── HERO SECTION ── */}
-      <section className="hero relative overflow-hidden bg-background">
+      <section className="relative h-screen overflow-hidden bg-background">
         {/* ── Background thumbnail image ── */}
         <div className="absolute inset-0 z-0">
           <div
@@ -162,7 +162,7 @@ export function PageBanner({
 
         {/* ── Content ── */}
         <div className="relative z-20 container flex h-full items-center">
-          <div className="flex max-w-2xl flex-col gap-6 text-white">
+          <div className="max-w-2xl space-y-6 text-white">
             {/* Label */}
             <span className="label text-xs font-bold tracking-widest text-primary uppercase">
               Kabaddi Films
@@ -218,7 +218,7 @@ export function PageBanner({
       {/* ── VIDEO MODAL ── */}
       {modalOpen && (
         <div
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/85 backdrop-blur-sm"
+          className="fixed inset-0 z-9999 flex items-center justify-center bg-black/85 backdrop-blur-sm"
           onClick={() => setModalOpen(false)}
         >
           <div

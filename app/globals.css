@@ -288,7 +288,7 @@
 
   /* Hero section — full viewport height minus navbar */
   section.hero {
-    @apply flex min-h-[calc(100vh-4rem)] items-center py-20 md:py-32;
+    @apply relative flex min-h-screen items-center overflow-hidden bg-background py-20 md:py-0;
   }
 
   /* ── Divider ─────────────────────────────────────────────────── */

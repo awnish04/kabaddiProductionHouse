@@ -6,7 +6,12 @@ import { useState } from "react"
 import { Menu } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
 import { Separator } from "@/components/ui/separator"
 import {
   NavigationMenu,
@@ -88,6 +93,8 @@ export function Navbar() {
             </SheetTrigger>
 
             <SheetContent side="right" className="w-72 bg-background p-6">
+              <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+
               <Link
                 href="/"
                 className="mb-6 block font-heading text-lg font-bold no-underline"

@@ -28,7 +28,7 @@ const CAROUSEL_IMAGES = [
 
 export function Hero() {
   return (
-    <section className="hero relative overflow-hidden bg-background">
+    <section className="relative h-screen overflow-hidden bg-background">
       {/* Background carousel — behind everything */}
       <div className="absolute inset-0 z-0 h-screen w-full">
         <Carousel
@@ -46,7 +46,7 @@ export function Hero() {
           <CarouselContent className="ml-0 h-screen">
             {CAROUSEL_IMAGES.map((src, i) => (
               <CarouselItem key={i} className="h-screen pl-0">
-                <div className="relative h-screen min-h-[calc(100vh-4rem)] w-full">
+                <div className="relative h-screen w-full">
                   <Image
                     src={src}
                     alt={`Kabaddi Films banner ${i + 1}`}
@@ -65,8 +65,8 @@ export function Hero() {
       </div>
 
       {/* Content — above carousel */}
-      <div className="relative z-10 container">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+      <div className="relative z-10 container flex h-full items-center">
+        <div className="grid w-full grid-cols-1 items-center gap-4 lg:grid-cols-2 lg:gap-12">
           {/* Left — headline + CTAs */}
           <div className="flex flex-col gap-6">
             <span className="label text-primary">Organic Cinema</span>
@@ -98,25 +98,25 @@ export function Hero() {
           </div>
 
           {/* Right — description + animated stats */}
-          <div className="hidden lg:flex lg:flex-col lg:gap-5 lg:pt-20 lg:pl-12">
+          <div className="flex flex-col gap-5 lg:pt-20 lg:pl-12">
             <p className="text-white drop-shadow-md">
               A movement in the Nepalese film industry pioneering authentic
               storytelling that preserves and promotes the diverse cultural
               identities of Nepal through high-quality cinematic narratives.
             </p>
             <Separator className="bg-white/70" />
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-2 md:gap-6">
               {STATS.map(({ value, suffix, prefix, label }) => (
                 <div key={label} className="flex flex-col gap-1">
                   <div className="font-heading text-3xl font-bold text-primary drop-shadow-lg">
                     {prefix && <span className="text-accent">{prefix}</span>}
                     <NumberTicker
                       value={value}
-                      className="font-heading text-7xl font-bold text-accent drop-shadow-lg"
+                      className="font-heading text-4xl font-bold text-accent drop-shadow-lg md:text-5xl lg:text-7xl"
                     />
                     {suffix && <span className="text-accent">{suffix}</span>}
                   </div>
-                  <span className="text-sm text-white drop-shadow-md">
+                  <span className="text-xs text-white drop-shadow-md md:text-sm">
                     {label}
                   </span>
                 </div>

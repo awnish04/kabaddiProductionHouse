@@ -78,7 +78,10 @@ export function FeaturedFilms() {
                     {film.badge}
                   </Badge>
                 </div>
-                <h4 className="leading-snug">{film.title}</h4>
+                {/* <h4 className="leading-snug">{film.title}</h4> */}
+                <h4 className="group-hover:text-primary">
+                  {film.title}
+                </h4>
                 <p className="line-clamp-3 text-sm text-muted-foreground">
                   {film.synopsis}
                 </p>

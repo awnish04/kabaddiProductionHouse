@@ -1,7 +1,6 @@
-import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 
 export function DirectorSpotlight() {
@@ -9,53 +8,39 @@ export function DirectorSpotlight() {
     <section className="bg-background">
       <div className="container">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-          {/* Left — featured film card with play button */}
+          {/* Left — featured film card with YouTube video */}
           <Card className="group overflow-hidden border-border bg-card transition-shadow hover:shadow-lg">
             <AspectRatio ratio={16 / 9}>
-              <Image
-                src="/Jaari_2023_2.jpg"
-                alt="Jaari — Behind the Scenes"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+              <iframe
+                src="https://www.youtube.com/embed/vp0LHwCf0wQ?autoplay=1&mute=1&loop=1&playlist=vp0LHwCf0wQ&controls=0&modestbranding=1&rel=0"
+                title="Jaari — Behind the Scenes"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full"
               />
-              {/* <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <Button
-                  size="lg"
-                  className="h-16 w-16 rounded-full bg-accent text-accent-foreground hover:bg-accent/90"
-                >
-                  <span className="text-2xl">▶</span>
-                </Button>
-              </div> */}
             </AspectRatio>
-            <CardContent className="p-4">
-              <h4>Jaari — Behind the Scenes</h4>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Watch the making of the all-time blockbuster
-              </p>
-            </CardContent>
           </Card>
           {/* Right — text */}
           <div className="flex flex-col gap-6">
-            <span className="label text-primary">The Visionary</span>
-            <h2>Creating unforgettable moments on the big screen</h2>
+            <span className="label text-primary">Behind the Scenes</span>
+            <h2>Where stories come to life</h2>
             <p className="text-muted-foreground">
-              Upendra Subba is a celebrated poet, lyricist, and filmmaker from
-              Panchthar. He is a leading figure of the Srijanshil Arajakta
-              (Creative Anarchy) literary movement. His transition to directing
-              with Jaari has redefined the commercial potential of ethnic cinema
-              in Nepal.
+              Step into the world of Kabaddi Films and witness the artistry,
+              dedication, and passion that goes into every frame. From the
+              director&apos;s vision to the crew&apos;s meticulous
+              craftsmanship, discover how authentic Nepali stories are brought
+              to life on the big screen.
             </p>
             <div className="flex flex-wrap gap-3">
               <Button asChild size="lg" variant="outline">
-                <Link href="/director">Read Full Biography</Link>
+                <Link href="/about">Meet the Team</Link>
               </Button>
               <Button
                 asChild
                 size="lg"
                 className="bg-accent text-accent-foreground hover:bg-accent/90"
               >
-                <Link href="/films">View Filmography</Link>
+                <Link href="/films">Explore Our Films</Link>
               </Button>
             </div>
           </div>

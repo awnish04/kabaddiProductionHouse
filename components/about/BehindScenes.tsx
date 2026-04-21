@@ -21,7 +21,7 @@ const BEHIND_SCENES_FEATURES = [
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 1024px) 100vw, 66vw"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-white/90 via-white/10 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent" />
       </div>
     ),
   },
@@ -42,7 +42,7 @@ const BEHIND_SCENES_FEATURES = [
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 1024px) 100vw, 33vw"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-white/90 via-white/10 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent" />
       </div>
     ),
   },
@@ -63,7 +63,7 @@ const BEHIND_SCENES_FEATURES = [
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 1024px) 100vw, 33vw"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-white/90 via-white/10 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent" />
       </div>
     ),
   },
@@ -84,7 +84,7 @@ const BEHIND_SCENES_FEATURES = [
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 1024px) 100vw, 66vw"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-white/90 via-white/10 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent" />
       </div>
     ),
   },
