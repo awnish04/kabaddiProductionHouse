@@ -1,18 +1,31 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 
 export function DirectorSpotlight() {
   return (
-    <section className="bg-background">
-      <div className="container">
+    <section className="relative bg-background">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0 h-full w-full overflow-hidden">
+        <Image
+          src="/film-vintage-negatives.png"
+          alt=""
+          fill
+          className="h-full w-full object-cover opacity-15"
+          sizes="100vw"
+        />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 container">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           {/* Left — featured film card with YouTube video */}
           <Card className="group overflow-hidden border-border bg-card transition-shadow hover:shadow-lg">
             <AspectRatio ratio={16 / 9}>
               <iframe
-                src="https://www.youtube.com/embed/vp0LHwCf0wQ?autoplay=1&mute=1&loop=1&playlist=vp0LHwCf0wQ&controls=0&modestbranding=1&rel=0"
+                src="https://www.youtube.com/embed/vp0LHwCf0wQ?autoplay=0&mute=0&loop=1&playlist=vp0LHwCf0wQ&controls=0&modestbranding=1&rel=0"
                 title="Jaari — Behind the Scenes"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

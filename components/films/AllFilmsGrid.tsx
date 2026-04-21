@@ -25,7 +25,7 @@ export function AllFilmsGrid({ films }: AllFilmsGridProps) {
           <div>
             <div className="mb-12 text-center">
               <h2 className="mb-4">Available to Watch</h2>
-              <p className="mx-auto max-w-2xl text-muted-foreground">
+              <p className="mx-auto max-w-2xl text-center text-muted-foreground">
                 Watch our released films and experience authentic Nepali cinema.
               </p>
             </div>
@@ -166,7 +166,7 @@ export function AllFilmsGrid({ films }: AllFilmsGridProps) {
           <div>
             <div className="mb-12 text-center">
               <h2 className="mb-4">Coming Soon</h2>
-              <p className="mx-auto max-w-2xl text-muted-foreground">
+              <p className="mx-auto max-w-2xl text-center text-muted-foreground">
                 Upcoming releases that will continue our legacy of authentic
                 storytelling.
               </p>

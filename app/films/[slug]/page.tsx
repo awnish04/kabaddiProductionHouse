@@ -189,14 +189,32 @@ export default async function FilmDetailsPage({
                   <Play className="h-5 w-5" /> Watch Trailer
                 </Link>
               </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="text-white"
-              >
-                <Link href="#">Book Tickets</Link>
-              </Button>
+              {!film.isReleased && (
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="text-white"
+                >
+                  <Link href="/contact">Book Tickets</Link>
+                </Button>
+              )}
+              {film.isReleased && film.fullMovieUrl && (
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="text-white"
+                >
+                  <Link
+                    href={film.fullMovieUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Play className="h-5 w-5" /> Watch Full Movie
+                  </Link>
+                </Button>
+              )}
             </div>
 
             {/* Trailers Section */}
@@ -280,7 +298,7 @@ export default async function FilmDetailsPage({
       <section className="section bg-muted/30">
         <div className="container text-center">
           <Button asChild size="lg" variant="outline">
-            <Link href="/#featured-films">← Back to All Films</Link>
+            <Link href="/films">← Back to All Films</Link>
           </Button>
         </div>
       </section>

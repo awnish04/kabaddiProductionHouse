@@ -211,16 +211,16 @@
 
   /* ── Body copy (Plus Jakarta Sans) ───────────────────────────── */
   p {
-    @apply font-sans text-foreground/80;
-    font-size: 1rem; /* 16px */
-    line-height: 1.75;
+    @apply font-sans text-foreground/80 text-justify;
+    font-size: 0.875rem; /* 16px */
+    line-height: 1.25rem;
     max-width: 70ch;
   }
 
   /* ── Lead / intro paragraph ──────────────────────────────────── */
   p.lead {
-    @apply font-sans text-foreground/70;
-    font-size: 1.125rem; /* 18px */
+    @apply font-sans text-foreground/70 text-justify;
+    font-size: 1rem; /* 18px */
     line-height: 1.7;
   }
 

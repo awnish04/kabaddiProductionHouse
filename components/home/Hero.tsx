@@ -38,7 +38,7 @@ export function Hero() {
           }}
           plugins={[
             Autoplay({
-              delay: 5000,
+              delay: 3000,
             }),
           ]}
           className="h-screen w-full"
@@ -65,10 +65,10 @@ export function Hero() {
       </div>
 
       {/* Content — above carousel */}
-      <div className="relative z-10 container flex h-full items-center">
+      <div className="relative z-10 container flex h-full items-center my-2 lg:my-0">
         <div className="grid w-full grid-cols-1 items-center gap-4 lg:grid-cols-2 lg:gap-12">
           {/* Left — headline + CTAs */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
             <span className="label text-primary">Organic Cinema</span>
             <h1 className="text-white drop-shadow-lg">
               Bringing the Soil of the East to the Silver Screen.
@@ -98,7 +98,7 @@ export function Hero() {
           </div>
 
           {/* Right — description + animated stats */}
-          <div className="flex flex-col gap-5 lg:pt-20 lg:pl-12">
+          <div className="flex flex-col gap-4 lg:pt-20 lg:pl-12">
             <p className="text-white drop-shadow-md">
               A movement in the Nepalese film industry pioneering authentic
               storytelling that preserves and promotes the diverse cultural

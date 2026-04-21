@@ -129,9 +129,7 @@ function DesktopCard({
               <h3 className="text-2xl leading-tight font-bold text-white">
                 {film.title}
               </h3>
-              <span className="shrink-0 text-sm text-white">
-                {film.year}
-              </span>
+              <span className="shrink-0 text-sm text-white">{film.year}</span>
             </div>
             <p className="max-w-[28ch] text-sm leading-relaxed text-white/80">
               {film.synopsis}

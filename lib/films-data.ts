@@ -53,7 +53,7 @@ export const FILMS_DATA: Film[] = [
     quality: "HD",
     nowShowing: false,
     isReleased: true,
-    fullMovieUrl: "https://www.youtube.com/watch?v=5O3K8JXch1E", // Replace with actual full movie URL
+    fullMovieUrl: "https://www.youtube.com/watch?v=kQZq8KrtQJ0", // Replace with actual full movie URL
     trailers: [
       {
         title: "Trailer",
@@ -78,6 +78,7 @@ export const FILMS_DATA: Film[] = [
     ],
     gallery: ["/Jaari_2023_1.jpg", "/Jaari_2023_2.jpg"],
   },
+
   {
     slug: "mansara-2024",
     title: "Mansara",
@@ -97,7 +98,7 @@ export const FILMS_DATA: Film[] = [
     quality: "HD",
     nowShowing: true,
     isReleased: true,
-    fullMovieUrl: "https://www.youtube.com/watch?v=_wGYG3sKHgQ", // Replace with actual full movie URL
+    fullMovieUrl: "https://www.youtube.com/watch?v=yDp15-gHRtU", // Replace with actual full movie URL
     trailers: [
       {
         title: "Trailer",
@@ -121,6 +122,7 @@ export const FILMS_DATA: Film[] = [
     ],
     gallery: ["/Mansara_2024_1.jpg", "/Mansara_2024_2.jpg"],
   },
+
   {
     slug: "jaari-2-2025",
     title: "Jaari 2",
@@ -163,17 +165,157 @@ export const FILMS_DATA: Film[] = [
     ],
     gallery: ["/Jaari-2_2025_1.jpg", "/Jaari-2_2025_2.jpg"],
   },
+
   {
-    slug: "kabaddi-series",
-    title: "Kabaddi Series",
-    year: "2014–2023",
-    releaseDate: "2014 - 2023",
+    slug: "kabaddi-4-2022",
+    title: "Kabaddi 4: The Final Match",
+    year: "2022",
+    releaseDate: "27 May 2022",
     genres: ["Action", "Drama", "Sports"],
     synopsis:
-      'The backbone of the Kabaddi (1–4) franchise. Upendra Subba shaped the legendary character "Kaji."',
+      "The epic conclusion to the Kabaddi franchise. Kaji faces his ultimate challenge in this thrilling finale.",
     fullDescription:
-      'The Kabaddi film series (2014-2023) revolutionized Nepali cinema with its authentic portrayal of rural life and the traditional sport of Kabaddi. Director Upendra Subba created the iconic character "Kaji," which became a cultural phenomenon and established new benchmarks for Nepali filmmaking.',
-    badge: "Legacy",
+      "Kabaddi 4: The Final Match brings the beloved franchise to a spectacular conclusion. Kaji returns for one last match that will determine not just his legacy, but the future of his village. With higher stakes and more intense action, this film delivers an emotional and satisfying end to the iconic series.",
+    badge: "Released",
+    poster: "/Kabaddi_2022_1.jpg",
+    posterAlt: "/Kabaddi_2022_2.jpg",
+    banner: "/Kabaddi_2022_Banner_1.jpg",
+    runtime: "2h 10m",
+    contentRating: "PG",
+    quality: "HD",
+    nowShowing: false,
+    isReleased: true,
+    fullMovieUrl: "https://www.youtube.com/watch?v=7WR3qzB40V8&t=1s",
+    trailers: [
+      {
+        title: "Trailer",
+        thumbnail: "/Kabaddi_2022_1.jpg",
+        videoUrl: "https://www.youtube.com/watch?v=7WR3qzB40V8",
+      },
+      {
+        title: "Teaser",
+        thumbnail: "/Kabaddi_2022_2.jpg",
+        videoUrl: "https://www.youtube.com/watch?v=aAFTcXtRvDg",
+      },
+    ],
+    cast: [
+      { name: "Dayahang Rai", role: "Kaji" },
+      { name: "Rishma Gurung", role: "Lead Actress" },
+      { name: "Buddhi Tamang", role: "Supporting Actor" },
+    ],
+    crew: [
+      { name: "Upendra Subba", role: "Director" },
+      { name: "Ram Babu Gurung", role: "Producer" },
+    ],
+    gallery: [
+      "/Kabaddi_2022_1.jpg",
+      "/Kabaddi_2022_2.jpg",
+      "/Kabaddi_2022_Banner_1.jpg",
+    ],
+  },
+
+  {
+    slug: "kabaddi-kabaddi-kabaddi-2019",
+    title: "Kabaddi Kabaddi Kabaddi",
+    year: "2019",
+    releaseDate: "13 September 2019",
+    genres: ["Action", "Drama", "Sports", "Comedy"],
+    synopsis:
+      "The third installment brings Kaji back with more humor, heart, and high-stakes kabaddi action.",
+    fullDescription:
+      "Kabaddi Kabaddi Kabaddi continues the beloved franchise with Kaji facing new challenges both on and off the kabaddi court. This installment balances comedy with drama as Kaji navigates family responsibilities while preparing for the biggest tournament of his life.",
+    badge: "Released",
+    poster: "/Kabaddi_2019_1.jpg",
+    posterAlt: "/Kabaddi_2019_2.jpg",
+    banner: "/Kabaddi_2019_Banner_1.jpg",
+    runtime: "2h 5m",
+    contentRating: "PG",
+    quality: "HD",
+    nowShowing: false,
+    isReleased: true,
+    fullMovieUrl: "https://www.youtube.com/watch?v=JLV26lOElSY",
+    trailers: [
+      {
+        title: "Trailer",
+        thumbnail: "/Kabaddi_2019_1.jpg",
+        videoUrl: "https://www.youtube.com/watch?v=c4HswWvFzWY",
+      },
+    ],
+    cast: [
+      { name: "Dayahang Rai", role: "Kaji" },
+      { name: "Rishma Gurung", role: "Lead Actress" },
+      { name: "Buddhi Tamang", role: "Supporting Actor" },
+    ],
+    crew: [
+      { name: "Upendra Subba", role: "Director" },
+      { name: "Ram Babu Gurung", role: "Producer" },
+    ],
+    gallery: [
+      "/Kabaddi_2019_1.jpg",
+      "/Kabaddi_2019_2.jpg",
+      "/Kabaddi_2019_Banner_1.jpg",
+    ],
+  },
+
+  {
+    slug: "kabaddi-kabaddi-2015",
+    title: "Kabaddi Kabaddi",
+    year: "2015",
+    releaseDate: "27 November 2015",
+    genres: ["Action", "Drama", "Sports"],
+    synopsis:
+      "The sequel that expanded the Kabaddi universe. Kaji returns with new rivals and greater challenges.",
+    fullDescription:
+      "Kabaddi Kabaddi builds on the success of the original, taking Kaji on a journey beyond his village. Facing new opponents and personal struggles, this sequel deepened the emotional core of the franchise while delivering thrilling kabaddi sequences.",
+    badge: "Released",
+    poster: "/Kabaddi_Kabaddi_2015_1.jpg",
+    posterAlt: "/Kabaddi_Kabaddi_2015_2.jpg",
+    banner: "/Kabaddi_Kabaddi_2015_Banner_1.jpg",
+    runtime: "2h 8m",
+    contentRating: "PG",
+    quality: "HD",
+    nowShowing: false,
+    isReleased: true,
+    fullMovieUrl: "https://www.youtube.com/watch?v=XJ6xDpxgbL0",
+    trailers: [
+      {
+        title: "Trailer",
+        thumbnail: "/Kabaddi_Kabaddi_2015_1.jpg",
+        videoUrl: "https://www.youtube.com/watch?v=_aqNQY5zfZQ",
+      },
+      {
+        title: "Teaser",
+        thumbnail: "/Kabaddi_Kabaddi_2015_2.jpg",
+        videoUrl: "https://www.youtube.com/watch?v=lrB8ojw0ah4",
+      },
+    ],
+    cast: [
+      { name: "Dayahang Rai", role: "Kaji" },
+      { name: "Rishma Gurung", role: "Lead Actress" },
+      { name: "Buddhi Tamang", role: "Supporting Actor" },
+    ],
+    crew: [
+      { name: "Upendra Subba", role: "Director" },
+      { name: "Ram Babu Gurung", role: "Producer" },
+    ],
+    gallery: [
+      "/Kabaddi_2014_1.jpg",
+      "/Kabaddi_2014_2.jpg",
+      "/Kabaddi_2014_3.jpg",
+    ],
+  },
+
+  {
+    slug: "kabaddi-2014",
+    title: "Kabaddi",
+    year: "2014",
+    releaseDate: "25 November 2014",
+    genres: ["Action", "Drama", "Sports"],
+    synopsis:
+      "The film that started it all. Meet Kaji, the legendary character who revolutionized Nepali cinema.",
+    fullDescription:
+      "Kabaddi (2014) introduced audiences to Kaji, a simple village man with extraordinary kabaddi skills. This groundbreaking film authentically portrayed rural Nepali life and the traditional sport of Kabaddi, becoming a cultural phenomenon and establishing new benchmarks for Nepali filmmaking.",
+    badge: "Classic",
     poster: "/Kabaddi_2014_1.jpg",
     posterAlt: "/Kabaddi_2014_2.jpg",
     banner: "/Kabaddi_2014_Banner_1.jpg",
@@ -182,35 +324,10 @@ export const FILMS_DATA: Film[] = [
     quality: "HD",
     nowShowing: false,
     isReleased: true,
-    fullMovieUrl: "https://www.youtube.com/watch?v=QPsblfsA_0w", // Replace with actual full movie URL
+    fullMovieUrl: "https://www.youtube.com/watch?v=fCfhY0E4GRo",
     trailers: [
       {
-        title: "Kabaddi 4 Trailer",
-        thumbnail: "/Kabaddi_2022_1.jpg",
-        videoUrl: "https://www.youtube.com/watch?v=7WR3qzB40V8",
-      },
-      {
-        title: "Kabaddi 4 Teaser",
-        thumbnail: "/Kabaddi_2022_2.jpg",
-        videoUrl: "https://www.youtube.com/watch?v=aAFTcXtRvDg",
-      },
-      {
-        title: "Kabaddi Kabaddi Kabaddi Trailer",
-        thumbnail: "/Kabaddi_2019_1.jpg",
-        videoUrl: "https://www.youtube.com/watch?v=c4HswWvFzWY",
-      },
-      {
-        title: "Kabaddi Kabaddi Trailer",
-        thumbnail: "/Kabaddi_Kabaddi_2015_1.jpg",
-        videoUrl: "https://www.youtube.com/watch?v=_aqNQY5zfZQ",
-      },
-      {
-        title: "Kabaddi Kabaddi Teaser",
-        thumbnail: "/Kabaddi_Kabaddi_2015_2.jpg",
-        videoUrl: "https://www.youtube.com/watch?v=lrB8ojw0ah4",
-      },
-      {
-        title: "Original Kabaddi",
+        title: "Trailer",
         thumbnail: "/Kabaddi_2014_3.jpg",
         videoUrl: "https://www.youtube.com/watch?v=QPsblfsA_0w",
       },
