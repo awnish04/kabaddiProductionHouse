@@ -4,6 +4,7 @@ import { Playfair_Display, Plus_Jakarta_Sans, Mukta } from "next/font/google"
 import "./globals.css"
 import { cn } from "@/lib/utils"
 import { ThemeProvider } from "@/components/shared/theme-provider"
+import { TooltipProvider } from "@/components/ui/tooltip"
 import { Navbar } from "@/components/shared/navbar"
 import { Footer } from "@/components/shared/footer"
 
@@ -53,9 +54,11 @@ export default function RootLayout({
     >
       <body suppressHydrationWarning>
         <ThemeProvider>
-          <Navbar/>
-          <main className="flex-1">{children}</main>
-          <Footer/>
+          <TooltipProvider>
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>

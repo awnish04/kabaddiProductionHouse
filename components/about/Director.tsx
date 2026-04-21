@@ -26,7 +26,7 @@ export function Director() {
             <Card className="overflow-hidden border-border bg-card">
               <AspectRatio ratio={3 / 4}>
                 <Image
-                  src="/Jaari_2023_2.jpg"
+                  src="/UpendraSubba.jpg"
                   alt="Upendra Subba"
                   fill
                   className="object-cover"
@@ -34,15 +34,6 @@ export function Director() {
                 />
               </AspectRatio>
             </Card>
-            {/* Floating reel decoration */}
-            <Image
-              src="/classic_film_reel_camera.png"
-              alt=""
-              width={100}
-              height={100}
-              className="absolute -bottom-4 -left-4 opacity-15"
-              aria-hidden
-            />
           </div>
 
           {/* Bio + filmography */}

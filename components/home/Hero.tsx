@@ -30,7 +30,7 @@ export function Hero() {
   return (
     <section className="hero relative overflow-hidden bg-background">
       {/* Background carousel — behind everything */}
-      <div className="absolute inset-0 z-0 h-full w-full">
+      <div className="absolute inset-0 z-0 h-screen w-full">
         <Carousel
           opts={{
             align: "start",
@@ -41,12 +41,12 @@ export function Hero() {
               delay: 5000,
             }),
           ]}
-          className="h-full w-full"
+          className="h-screen w-full"
         >
-          <CarouselContent className="ml-0 h-full">
+          <CarouselContent className="ml-0 h-screen">
             {CAROUSEL_IMAGES.map((src, i) => (
-              <CarouselItem key={i} className="h-full pl-0">
-                <div className="relative h-full min-h-[calc(100vh-4rem)] w-full">
+              <CarouselItem key={i} className="h-screen pl-0">
+                <div className="relative h-screen min-h-[calc(100vh-4rem)] w-full">
                   <Image
                     src={src}
                     alt={`Kabaddi Films banner ${i + 1}`}
@@ -90,7 +90,8 @@ export function Hero() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="text-white">
+                className="text-white"
+              >
                 <Link href="/about">Our Story</Link>
               </Button>
             </div>

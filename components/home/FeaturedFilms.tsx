@@ -7,6 +7,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio"
 
 const FEATURED_FILMS = [
   {
+    slug: "jaari-2023",
     title: "Jaari",
     year: "2023",
     synopsis:
@@ -15,6 +16,7 @@ const FEATURED_FILMS = [
     poster: "/Jaari_2023_1.jpg",
   },
   {
+    slug: "mansara-2024",
     title: "Mansara",
     year: "2024",
     synopsis:
@@ -23,6 +25,7 @@ const FEATURED_FILMS = [
     poster: "/Mansara_2024_1.jpg",
   },
   {
+    slug: "jaari-2-2025",
     title: "Jaari 2",
     year: "2025",
     synopsis:
@@ -31,6 +34,7 @@ const FEATURED_FILMS = [
     poster: "/Jaari-2_2025_1.jpg",
   },
   {
+    slug: "kabaddi-series",
     title: "Kabaddi Series",
     year: "2014–2023",
     synopsis:
@@ -42,7 +46,7 @@ const FEATURED_FILMS = [
 
 export function FeaturedFilms() {
   return (
-    <section className="bg-secondary">
+    <section className="bg-secondary" id="featured-films">
       <div className="container">
         <div className="mb-10 flex flex-col gap-2">
           <span className="label text-primary">Our Films</span>
@@ -84,7 +88,7 @@ export function FeaturedFilms() {
                   size="sm"
                   className="mt-1 w-fit px-0 text-primary hover:bg-transparent hover:text-accent"
                 >
-                  <Link href="/films">View Details →</Link>
+                  <Link href={`/films/${film.slug}`}>View Details →</Link>
                 </Button>
               </CardContent>
             </Card>

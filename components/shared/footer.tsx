@@ -1,5 +1,7 @@
 import Link from "next/link"
-import { Separator } from "@/components/ui/separator"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa"
 
 const FOOTER_LINKS = {
   Films: [
@@ -14,48 +16,45 @@ const FOOTER_LINKS = {
     { label: "Contact", href: "/contact" },
   ],
   Connect: [
-    { label: "Instagram", href: "#" },
-    { label: "Facebook", href: "#" },
-    { label: "YouTube", href: "#" },
+    { label: "Instagram", href: "#", icon: FaInstagram },
+    { label: "Facebook", href: "#", icon: FaFacebook },
+    { label: "YouTube", href: "#", icon: FaYoutube },
   ],
 }
 
 export function Footer() {
   return (
-    <footer className="w-full border-t border-border bg-background">
-      <div className="container py-14">
-        {/* Top row */}
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Brand blurb */}
-          <div className="flex flex-col gap-3">
+    <footer className="h-fit w-full bg-background">
+      {/* Bottom Section: Dark Background with Links */}
+      <div className="bg-[#1A1A1A] text-white">
+        <div className="container py-12">
+          {/* Logo and Tagline */}
+          <div className="mb-8 flex flex-col gap-3">
             <Link
               href="/"
-              className="font-heading text-xl font-bold no-underline"
+              className="font-heading text-2xl font-bold no-underline"
             >
               Kabaddi<span className="text-primary">Films</span>
             </Link>
-            <p className="max-w-xs text-sm text-muted-foreground">
+            <p className="max-w-2xl text-sm text-white/70">
               Pioneering Organic Cinema rooted in Limbu&nbsp;/&nbsp;Yakthung
               heritage and the raw beauty of Nepal&apos;s eastern hills.
             </p>
-            <p className="text-xs text-muted-foreground">
-              In association with{" "}
-              <span className="font-medium text-foreground">Baasuri Films</span>{" "}
-              &amp;{" "}
-              <span className="font-medium text-foreground">Cinema Art</span>
-            </p>
           </div>
 
-          {/* Link columns */}
-          {Object.entries(FOOTER_LINKS).map(([heading, links]) => (
-            <div key={heading} className="flex flex-col gap-3">
-              <p className="label">{heading}</p>
+          {/* Link Grid */}
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+            {/* Films Column */}
+            <div className="flex flex-col gap-3">
+              <p className="text-sm font-semibold tracking-wider text-white uppercase">
+                Films
+              </p>
               <ul className="flex list-none flex-col gap-2 pl-0">
-                {links.map((link) => (
+                {FOOTER_LINKS.Films.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-muted-foreground no-underline transition-colors hover:text-primary"
+                      className="text-sm text-white/60 no-underline transition-colors hover:text-primary"
                     >
                       {link.label}
                     </Link>
@@ -63,21 +62,68 @@ export function Footer() {
                 ))}
               </ul>
             </div>
-          ))}
-        </div>
 
-        <Separator className="my-8" />
+            {/* Company Column */}
+            <div className="flex flex-col gap-3">
+              <p className="text-sm font-semibold tracking-wider text-white uppercase">
+                Company
+              </p>
+              <ul className="flex list-none flex-col gap-2 pl-0">
+                {FOOTER_LINKS.Company.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/60 no-underline transition-colors hover:text-primary"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-        {/* Bottom row */}
-        <div className="flex flex-col items-center justify-between gap-3 text-xs text-muted-foreground sm:flex-row">
-          <p>
-            &copy; {new Date().getFullYear()} Kabaddi Films. All rights
-            reserved.
-          </p>
-          <p>
-            Produced by{" "}
-            <span className="font-medium text-foreground">Ram Babu Gurung</span>
-          </p>
+            {/* Partners Column */}
+            <div className="flex flex-col gap-3">
+              <p className="text-sm font-semibold tracking-wider text-white uppercase">
+                Partners
+              </p>
+              <ul className="flex list-none flex-col gap-2 pl-0">
+                <li className="text-sm text-white/60">Baasuri Films</li>
+                <li className="text-sm text-white/60">Cinema Art</li>
+              </ul>
+            </div>
+
+            {/* Connect Column */}
+            <div className="flex flex-col gap-3">
+              <p className="text-sm font-semibold tracking-wider text-white uppercase">
+                Connect
+              </p>
+              <ul className="flex list-none flex-col gap-2 pl-0">
+                {FOOTER_LINKS.Connect.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/60 no-underline transition-colors hover:text-primary"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom Copyright */}
+          <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-8 text-xs text-white/50 sm:flex-row">
+            <p>
+              &copy; {new Date().getFullYear()} Kabaddi Films. All rights
+              reserved.
+            </p>
+            <p>
+              Produced by{" "}
+              <span className="font-medium text-white/70">Ram Babu Gurung</span>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

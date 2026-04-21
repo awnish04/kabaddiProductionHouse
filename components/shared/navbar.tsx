@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { useState } from "react"
 import { Menu } from "lucide-react"
 
@@ -14,6 +15,7 @@ import {
   NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+import { cn } from "@/lib/utils"
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -24,6 +26,14 @@ const NAV_LINKS = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
+
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/"
+    }
+    return pathname.startsWith(href)
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/90 backdrop-blur-md">
@@ -44,7 +54,11 @@ export function Navbar() {
                 <NavigationMenuLink asChild>
                   <Link
                     href={link.href}
-                    className={navigationMenuTriggerStyle()}
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      isActive(link.href) &&
+                        "bg-primary/10 font-semibold text-primary"
+                    )}
                   >
                     {link.label}
                   </Link>
@@ -92,7 +106,11 @@ export function Navbar() {
                       <NavigationMenuLink asChild>
                         <Link
                           href={link.href}
-                          className="block w-full rounded-none px-3 py-2 text-base font-medium text-foreground no-underline transition-colors hover:bg-muted hover:text-primary"
+                          className={cn(
+                            "block w-full rounded-none px-3 py-2 text-base font-medium text-foreground no-underline transition-colors hover:bg-muted hover:text-primary",
+                            isActive(link.href) &&
+                              "bg-primary/10 font-semibold text-primary"
+                          )}
                           onClick={() => setOpen(false)}
                         >
                           {link.label}

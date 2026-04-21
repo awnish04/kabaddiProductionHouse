@@ -3,7 +3,6 @@ import { FeaturedFilms } from "@/components/home/FeaturedFilms"
 import { ComingSoon } from "@/components/home/ComingSoon"
 import { AwardsBadges } from "@/components/home/AwardsBadges"
 import { DirectorSpotlight } from "@/components/home/DirectorSpotlight"
-import { CtaBanner } from "@/components/home/CtaBanner"
 
 export default function HomePage() {
   return (
@@ -13,7 +12,6 @@ export default function HomePage() {
       <ComingSoon />
       <AwardsBadges />
       <DirectorSpotlight />
-      <CtaBanner />
     </>
   )
 }

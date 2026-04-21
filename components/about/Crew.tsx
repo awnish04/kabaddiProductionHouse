@@ -49,7 +49,7 @@ export function Crew() {
               key={member.name}
               className="group overflow-hidden border-border bg-card transition-shadow hover:shadow-lg"
             >
-              <AspectRatio ratio={3 / 4}>
+              <AspectRatio ratio={3 / 4} className="relative overflow-hidden">
                 <Image
                   src={member.image}
                   alt={member.name}
@@ -57,9 +57,9 @@ export function Crew() {
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 p-4">
-                  <Badge className="mb-1 bg-primary text-xs text-primary-foreground">
+                <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute right-0 bottom-0 left-0 p-4">
+                  <Badge className="bg-primary text-xs text-primary-foreground">
                     {member.badge}
                   </Badge>
                 </div>

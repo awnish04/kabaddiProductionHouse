@@ -2,7 +2,7 @@ import { PageBanner } from "@/components/about/PageBanner"
 import { Mission } from "@/components/about/Mission"
 import { Director } from "@/components/about/Director"
 import { Crew } from "@/components/about/Crew"
-import { CtaBanner } from "@/components/home/CtaBanner"
+import { BehindScenes } from "@/components/about/BehindScenes"
 
 export const metadata = {
   title: "About Us — Kabaddi Films",
@@ -17,7 +17,7 @@ export default function AboutPage() {
       <Mission />
       <Director />
       <Crew />
-      <CtaBanner />
+      <BehindScenes/>
     </>
   )
 }

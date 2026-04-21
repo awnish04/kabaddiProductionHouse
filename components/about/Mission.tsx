@@ -1,19 +1,20 @@
 import Image from "next/image"
 import { Separator } from "@/components/ui/separator"
+import { Clapperboard, Handshake, MountainSnow } from "lucide-react"
 
 const PILLARS = [
   {
-    icon: "🎬",
+    icon: Clapperboard,
     title: "Organic Cinema",
     body: "Stories drawn from real communities, real landscapes, and real traditions — never manufactured for mass appeal.",
   },
   {
-    icon: "🏔️",
+    icon: MountainSnow,
     title: "Cultural Preservation",
     body: "Every frame is a document of Limbu / Yakthung heritage, ensuring these identities live on through cinema.",
   },
   {
-    icon: "🤝",
+    icon: Handshake,
     title: "Collaborative Spirit",
     body: "Working closely with Baasuri Films and Cinema Art to bring authentic Nepalese stories to the widest possible audience.",
   },
@@ -54,15 +55,18 @@ export function Mission() {
             <Separator />
 
             <div className="flex flex-col gap-5">
-              {PILLARS.map((p) => (
-                <div key={p.title} className="flex gap-4">
-                  <span className="mt-0.5 text-2xl">{p.icon}</span>
-                  <div>
-                    <h5 className="mb-1">{p.title}</h5>
-                    <p className="text-sm text-muted-foreground">{p.body}</p>
+              {PILLARS.map((p) => {
+                const Icon = p.icon
+                return (
+                  <div key={p.title} className="flex gap-4">
+                    <Icon className="mt-0.5 h-8 w-8 text-accent" />
+                    <div>
+                      <h5 className="mb-1">{p.title}</h5>
+                      <p className="text-sm text-muted-foreground">{p.body}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         </div>
