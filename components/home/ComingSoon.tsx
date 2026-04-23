@@ -6,6 +6,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { FilmIcon } from "lucide-react"
 
 const FILMS = [
   {
@@ -14,7 +15,6 @@ const FILMS = [
     synopsis:
       "The anticipated sequel — the cultural rhythm of the Chyabrung drum amidst the backdrop of historical change.",
     badge: "Coming Soon",
-    badgeClass: "bg-accent text-accent-foreground",
     image: "/Jaari-2_2025_1.jpg",
   },
   {
@@ -23,7 +23,6 @@ const FILMS = [
     synopsis:
       "A social drama exploring ethnic identities, fertility, and migration in the hills of Nepal.",
     badge: "Now Showing",
-    badgeClass: "bg-primary text-primary-foreground",
     image: "/Mansara_2024_1.jpg",
   },
   {
@@ -32,7 +31,6 @@ const FILMS = [
     synopsis:
       "A story of resilience and identity set against the breathtaking landscapes of rural Nepal.",
     badge: "Watch Now",
-    badgeClass: "bg-white/20 text-white backdrop-blur-sm",
     image: "/Jaari_2023_1.jpg",
   },
   {
@@ -41,7 +39,6 @@ const FILMS = [
     synopsis:
       "A groundbreaking Nepali sports drama that defined a generation of cinema.",
     badge: "Classic",
-    badgeClass: "bg-white/20 text-white backdrop-blur-sm",
     image: "/Kabaddi_2014_1.jpg",
   },
 ]
@@ -120,11 +117,7 @@ function DesktopCard({
             transition={{ duration: 0.45, delay: 0.1, ease: "easeOut" }}
             className="absolute right-0 bottom-0 left-0 p-7"
           >
-            <Badge
-              className={`mb-3 text-[10px] font-bold tracking-widest uppercase ${film.badgeClass}`}
-            >
-              {film.badge}
-            </Badge>
+            <Badge className="label bg-primary">{film.badge}</Badge>
             <div className="mb-2 flex items-baseline gap-2">
               <h3 className="text-2xl leading-tight font-bold text-white">
                 {film.title}
@@ -207,11 +200,7 @@ function MobileCard({
             transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
             className="absolute right-0 bottom-0 left-0 p-4"
           >
-            <Badge
-              className={`mb-2 text-[10px] font-bold tracking-widest uppercase ${film.badgeClass}`}
-            >
-              {film.badge}
-            </Badge>
+            <Badge className="label bg-primary">{film.badge}</Badge>
             <div className="mb-1 flex items-baseline gap-2">
               <h3 className="text-base leading-tight font-bold text-white">
                 {film.title}
@@ -238,10 +227,10 @@ export function ComingSoon() {
 
   return (
     <section className="overflow-hidden">
-      <div className="container px-0 sm:px-4 lg:px-0">
+      <div className="container">
         {/* Section header */}
         <div className="mb-8 flex flex-col gap-2 px-4 sm:px-0">
-          <span className="label text-primary">In Theatres</span>
+          <span className="label">In Theatres</span>
           <h2>Creating unforgettable moments on the big screen</h2>
         </div>
 
@@ -271,11 +260,15 @@ export function ComingSoon() {
 
         <div className="mt-8 flex justify-center">
           <Button
+            variant="default"
             asChild
             size="lg"
             className="w-full sm:w-auto sm:min-w-[220px]"
           >
-            <Link href="/films">View All Films</Link>
+            <Link href="/films" className="flex items-center gap-2">
+              <FilmIcon />
+              View All Films
+            </Link>
           </Button>
         </div>
       </div>

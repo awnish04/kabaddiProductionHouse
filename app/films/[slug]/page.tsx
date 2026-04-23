@@ -68,11 +68,6 @@ export default async function FilmDetailsPage({
 
         <div className="relative z-10 container flex h-full items-center">
           <div className="max-w-3xl space-y-6 text-white">
-            {/* Badge */}
-            <Badge className="label bg-accent text-accent-foreground">
-              {film.badge}
-            </Badge>
-
             {/* Title */}
             <h1>{film.title}</h1>
 
@@ -169,34 +164,34 @@ export default async function FilmDetailsPage({
             {/* Buttons */}
             <div className="flex w-full flex-col gap-3 sm:flex-row">
               {film.trailers.length > 0 && (
-                <Button asChild size="lg" className="bg-accent">
+                <Button variant="default" asChild size="lg">
                   <Link
                     href={film.trailers[0].videoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2"
                   >
-                    <Play className="h-5 w-5" />
+                    <Play/>
                     Watch Trailer
                   </Link>
                 </Button>
               )}
 
               {!film.isReleased && (
-                <Button asChild size="lg" variant="outline">
+                <Button variant="outline" asChild size="lg">
                   <Link href="/contact">Book Tickets</Link>
                 </Button>
               )}
 
               {film.isReleased && film.fullMovieUrl && (
-                <Button asChild size="lg" variant="outline">
+                <Button variant="outline" asChild size="lg">
                   <Link
                     href={film.fullMovieUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2"
                   >
-                    <Play className="h-5 w-5" />
+                    <Play/>
                     Watch Full Movie
                   </Link>
                 </Button>
@@ -253,7 +248,7 @@ export default async function FilmDetailsPage({
       {/* BACK */}
       <section className="bg-muted/30 py-12">
         <div className="container text-center">
-          <Button asChild variant="outline" size="lg">
+          <Button variant="outline" asChild size="lg">
             <Link href="/films">← Back to All Films</Link>
           </Button>
         </div>

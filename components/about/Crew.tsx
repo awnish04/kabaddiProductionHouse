@@ -39,7 +39,7 @@ export function Crew() {
     <section className="bg-background">
       <div className="container">
         <div className="mb-10 flex flex-col gap-2">
-          <span className="label text-primary">Behind the Scenes</span>
+          <span className="label">Behind the Scenes</span>
           <h2>The Team</h2>
         </div>
 

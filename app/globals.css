@@ -58,7 +58,7 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 
   /* Brand tokens — available as Tailwind utilities */
-  --color-brand-teal: #008080; /* Himalayan Teal  — Accent 1 */
+  --color-brand-teal: #00a3a3; /* Himalayan Teal  — Accent 1 */
   --color-brand-marigold: #f4a261; /* Marigold Glow   — Accent 2 / CTA */
   --color-brand-mist: #e8ecef; /* Soft Mist       — section bg  */
   --color-brand-graphite: #1a1a1a; /* Deep Graphite   — body text   */
@@ -78,7 +78,7 @@
   --popover-foreground: #1a1a1a;
 
   /* Primary → Himalayan Teal */
-  --primary: #008080;
+  --primary: #00a3a3;
   --primary-foreground: #fafafa;
 
   /* Secondary → Soft Mist */
@@ -99,10 +99,10 @@
   /* Borders & inputs */
   --border: #d1d5db;
   --input: #d1d5db;
-  --ring: #008080;
+  --ring: #00a3a3;
 
   /* Charts */
-  --chart-1: #008080;
+  --chart-1: #00a3a3;
   --chart-2: #f4a261;
   --chart-3: #0ea5e9;
   --chart-4: #8b5cf6;
@@ -113,12 +113,12 @@
   /* Sidebar */
   --sidebar: #fafafa;
   --sidebar-foreground: #1a1a1a;
-  --sidebar-primary: #008080;
+  --sidebar-primary: #00a3a3;
   --sidebar-primary-foreground: #fafafa;
   --sidebar-accent: #e8ecef;
   --sidebar-accent-foreground: #1a1a1a;
   --sidebar-border: #d1d5db;
-  --sidebar-ring: #008080;
+  --sidebar-ring: #00a3a3;
 }
 
 /* ─── Dark mode ──────────────────────────────────────────────────── */
@@ -281,8 +281,8 @@
   /* ───── LABEL ───── */
 
   .label {
-    @apply font-semibold tracking-widest text-muted-foreground uppercase;
-    font-size: clamp(0.7rem, 1vw, 0.75rem);
+    @apply font-semibold tracking-widest uppercase text-accent;
+    font-size: clamp(0.7rem, 3vw, 0.85rem);
   }
 
   /* ───── SECTION SYSTEM (IMPORTANT FIX) ───── */
@@ -314,12 +314,3 @@
 
   padding-inline: clamp(0.75rem, 2vw, 1.25rem);
 }
-
-/* 
-@utility container {
-  margin-inline: auto;
-  width: 100%;
-
-  max-width: 100%;
-  padding-inline: clamp(0.75rem, 2vw, 1.5rem);
-} */

@@ -50,7 +50,7 @@ export function PageBanner({
         <div className="relative z-10 container">
           <div className="flex max-w-2xl flex-col gap-6">
             {/* Label */}
-            <span className="label text-primary">Kabaddi Films</span>
+            <span className="label">Kabaddi Films</span>
 
             {/* Title → now uses global h1 */}
             <h1 className="text-white">{title}</h1>
@@ -63,8 +63,9 @@ export function PageBanner({
               onClick={() => setModalOpen(true)}
               className="group flex w-fit items-center gap-4"
             >
-              <div className="relative flex h-14 w-14 items-center justify-center rounded-full border border-white/30 bg-white/10 backdrop-blur-sm transition group-hover:scale-110 group-hover:bg-white/20">
-                <div className="absolute inset-0 rounded-full border border-white/20 transition group-hover:scale-125" />
+              <div className="relative flex h-10 w-10 items-center justify-center rounded-full border border-primary bg-primary/30 backdrop-blur-sm transition group-hover:scale-110 group-hover:bg-primary">
+                <div className="absolute inset-0 rounded-full border border-primary transition group-hover:scale-125" />
+                <div className="absolute inset-0 rounded-full border border-primary transition group-hover:scale-150" />
 
                 <Play className="ml-0.5 h-5 w-5 text-white" />
               </div>
@@ -94,7 +95,7 @@ export function PageBanner({
               onClick={() => setModalOpen(false)}
               className="absolute -top-10 right-4 text-white/70 hover:text-white"
             >
-              <X className="h-7 w-7" />
+              <X className="h-10 w-10" />
             </button>
 
             <div className="relative aspect-video w-full">

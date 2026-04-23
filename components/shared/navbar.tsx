@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
-import { Menu } from "lucide-react"
+import { Menu, Phone } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -27,7 +27,6 @@ const NAV_LINKS = [
   { label: "About", href: "/about" },
   { label: "Films", href: "/films" },
   { label: "Events", href: "/events" },
-  { label: "Contact", href: "/contact" },
 ]
 
 export function Navbar() {
@@ -77,18 +76,22 @@ export function Navbar() {
         {/* ── CTA + Mobile Sheet ───────────────────────────────── */}
         <div className="flex items-center gap-3">
           <Button
+            variant="default"
             asChild
             size="sm"
-            className="hidden bg-accent text-accent-foreground hover:bg-accent/90 md:inline-flex"
+            className="hidden md:inline-flex"
           >
-            <Link href="/films">Watch Trailer</Link>
+            <Link href="/contact" className="flex text-center gap-2">
+              <Phone />
+              Contact
+            </Link>
           </Button>
 
           {/* Mobile hamburger — Sheet from shadcn */}
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu className="h-5 w-5" />
+                <Menu />
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
@@ -131,13 +134,8 @@ export function Navbar() {
 
               <Separator className="my-6" />
 
-              <Button
-                asChild
-                className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
-              >
-                <Link href="/films" onClick={() => setOpen(false)}>
-                  Watch Trailer
-                </Link>
+              <Button variant="default" asChild className="w-full">
+                <Link href="/contact">Contact</Link>
               </Button>
             </SheetContent>
           </Sheet>

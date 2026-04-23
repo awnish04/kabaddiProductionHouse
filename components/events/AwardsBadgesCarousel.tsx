@@ -1,10 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { useState, useEffect, useRef } from "react"
-import { useTheme } from "next-themes"
-import { Badge } from "@/components/ui/badge"
-import { MagicCard } from "@/components/ui/magic-card"
+import { useState, useEffect, useRef, useCallback } from "react"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 
 const AWARDS = [
@@ -48,27 +45,28 @@ const AWARDS = [
 
 const N = AWARDS.length
 
-// Desktop (bigger cards)
-const POS_DESKTOP = [
-  { w: 400, h: 520, opacity: 1, scale: 1 },
-  { w: 300, h: 400, opacity: 0.75, scale: 0.93 },
-  { w: 230, h: 320, opacity: 0.5, scale: 0.86 },
-  { w: 180, h: 260, opacity: 0.28, scale: 0.78 },
-]
+type SlotStyle = {
+  xFactor: number
+  scale: number
+  opacity: number
+  zIndex: number
+}
 
-// Mobile (bigger but still fits)
-const POS_MOBILE = [
-  { w: 280, h: 360, opacity: 1, scale: 1 },
-  { w: 200, h: 260, opacity: 0.55, scale: 0.9 },
-  { w: 120, h: 180, opacity: 0, scale: 0.8 },
-  { w: 120, h: 180, opacity: 0, scale: 0.8 },
-]
+const SLOT_STYLES: Record<number, SlotStyle> = {
+  "-2": { xFactor: -2, scale: 0.7, opacity: 0, zIndex: 0 },
+  "-1": { xFactor: -1, scale: 0.85, opacity: 0.5, zIndex: 1 },
+  "0": { xFactor: 0, scale: 1, opacity: 1, zIndex: 3 },
+  "1": { xFactor: 1, scale: 0.85, opacity: 0.5, zIndex: 1 },
+  "2": { xFactor: 2, scale: 0.7, opacity: 0, zIndex: 0 },
+}
 
-// Desktop spacing (based on new widths)
-const X_DESKTOP = [0, 420, 420 + 320, 420 + 320 + 250]
-
-// Mobile spacing
-const X_MOBILE = [0, 300, 900, 900]
+const SLOT_STYLES_MOBILE: Record<number, SlotStyle> = {
+  "-2": { xFactor: -2, scale: 0.6, opacity: 0, zIndex: 0 },
+  "-1": { xFactor: -1, scale: 0.8, opacity: 0.25, zIndex: 1 },
+  "0": { xFactor: 0, scale: 1, opacity: 1, zIndex: 3 },
+  "1": { xFactor: 1, scale: 0.8, opacity: 0.25, zIndex: 1 },
+  "2": { xFactor: 2, scale: 0.6, opacity: 0, zIndex: 0 },
+}
 
 export function AwardsBadgesCarousel() {
   const [active, setActive] = useState(0)
@@ -76,244 +74,210 @@ export function AwardsBadgesCarousel() {
   const timer = useRef<ReturnType<typeof setInterval> | null>(null)
 
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 1024)
+    const check = () => setIsMobile(window.innerWidth < 768)
     check()
     window.addEventListener("resize", check)
     return () => window.removeEventListener("resize", check)
   }, [])
 
-  function startTimer() {
+  const startTimer = useCallback(() => {
     if (timer.current) clearInterval(timer.current)
-    timer.current = setInterval(() => setActive((p) => (p + 1) % N), 3200)
-  }
+    timer.current = setInterval(() => setActive((p) => (p + 1) % N), 3500)
+  }, [])
 
   useEffect(() => {
     startTimer()
     return () => {
       if (timer.current) clearInterval(timer.current)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [startTimer])
 
   function handleNext() {
     setActive((p) => (p + 1) % N)
     startTimer()
   }
+
   function handlePrev() {
     setActive((p) => (p - 1 + N) % N)
     startTimer()
   }
+
   function handleSelect(i: number) {
     setActive(i)
     startTimer()
   }
 
-  const POS = isMobile ? POS_MOBILE : POS_DESKTOP
-  const X = isMobile ? X_MOBILE : X_DESKTOP
+  // CARD Height and width
+  const CARD_W = isMobile ? 290 : "clamp(320px, 28vw, 440px)"
 
-  const cards = AWARDS.map((award, i) => {
-    const pos = (i - active + N) % N
-    return { award, i, pos }
-  })
+  const CARD_H = isMobile ? 350 : "clamp(360px, 32vw, 500px)"
 
-  // Wreath sizes: large enough so text fits comfortably inside the ring
-  const WREATH_DESKTOP = [440, 340, 260, 200]
-  const WREATH_MOBILE = [320, 240, 160, 160]
-  const WREATH = isMobile ? WREATH_MOBILE : WREATH_DESKTOP
+  // IMPORTANT: better medium-screen control
+  const GAP = isMobile ? 330 : 420
 
-  // const containerH = isMobile ? 340 : 460
-  const containerH = isMobile ? 420 : 580
+  const isTablet =
+    typeof window !== "undefined" &&
+    window.innerWidth < 1024 &&
+    window.innerWidth >= 768
+
+  const slots = isMobile
+    ? SLOT_STYLES_MOBILE
+    : isTablet
+      ? {
+          "-2": { xFactor: -2, scale: 0.78, opacity: 0, zIndex: 0 },
+          "-1": { xFactor: -1, scale: 0.9, opacity: 0.6, zIndex: 1 },
+          "0": { xFactor: 0, scale: 1.05, opacity: 1, zIndex: 3 },
+          "1": { xFactor: 1, scale: 0.9, opacity: 0.6, zIndex: 1 },
+          "2": { xFactor: 2, scale: 0.78, opacity: 0, zIndex: 0 },
+        }
+      : SLOT_STYLES
+
+  const containerH = isMobile ? 350 : "clamp(420px, 40vw, 480px)"
 
   return (
-    <section className="hero">
-      <div className="w-full py-16 lg:py-0">
-        <div className="container">
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[400px_1fr]">
-            {/* ── LEFT: Text + nav ── */}
-            <div className="flex flex-col gap-5">
-              <Badge className="w-fit bg-accent text-accent-foreground">
-                Achievements
-              </Badge>
+    <section className="overflow-hidden py-10">
+      <div className="container flex flex-col items-center gap-10">
+        {/* HEADER */}
+        <div className="flex flex-col items-center gap-3 text-center">
+          <span className="label">Achievements</span>
+          <h2 className="max-w-xl">Our Awards</h2>
+          <p className="lead max-w-2xl text-center">
+            Celebrating excellence in authentic Nepali storytelling. Recognised
+            nationally and internationally for our contribution to cinema.
+          </p>
+        </div>
 
-              <h2>We&apos;ve got Clutch awards</h2>
-
-              <p>
-                Celebrating excellence in authentic Nepali storytelling.
-                Recognised nationally and internationally for our contribution
-                to cinema.
-              </p>
-
-              {/* Nav arrows + progress */}
-              <div className="mt-1 flex items-center gap-4">
-                <button
-                  onClick={handlePrev}
-                  aria-label="Previous"
-                  className="group flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border transition-all hover:border-primary hover:bg-primary/5"
-                >
-                  <ArrowLeft className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-primary" />
-                </button>
-
-                <div className="relative h-px w-24 overflow-hidden bg-border">
-                  <div
-                    className="absolute top-0 left-0 h-full bg-primary transition-all duration-500"
-                    style={{ width: `${((active + 1) / N) * 100}%` }}
-                  />
-                </div>
-
-                <button
-                  onClick={handleNext}
-                  aria-label="Next"
-                  className="group flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border transition-all hover:border-primary hover:bg-primary/5"
-                >
-                  <ArrowRight className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-primary" />
-                </button>
-              </div>
-            </div>
-
-            {/* ── RIGHT: Cards strip ── */}
-            <div
-              className="relative overflow-hidden"
-              style={{ height: containerH }}
+        {/* CAROUSEL */}
+        <div className="flex w-full items-center justify-between px-2 sm:px-4 md:px-6 lg:px-10">
+          {/* PREV */}
+          {!isMobile && (
+            <button
+              onClick={handlePrev}
+              className="group z-10 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background shadow-sm hover:border-primary hover:bg-primary/5"
             >
-              {/* Right-edge fade */}
-              <div className="pointer-events-none absolute top-0 right-0 bottom-0 z-10 w-24 bg-gradient-to-l from-background to-transparent" />
+              <ArrowLeft className="h-4 w-4 text-muted-foreground group-hover:text-primary" />
+            </button>
+          )}
 
-              {cards.map(({ award, i, pos }) => {
-                const style = POS[pos] ?? {
-                  w: 100,
-                  h: 160,
-                  opacity: 0,
-                  scale: 0.7,
-                }
-                const xOffset = X[pos] ?? 900
-                const wreath = WREATH[pos] ?? 90
-                const isActive = pos === 0
+          {/* CARDS */}
+          <div className="relative mx-4 flex-1" style={{ height: containerH }}>
+            {AWARDS.map((award, i) => {
+              let slot = (i - active + N) % N
+              if (slot > N / 2) slot -= N
+              slot = Math.max(-2, Math.min(2, slot))
 
-                // Text sizes scale with wreath
-                const fs = {
-                  year: isActive
-                    ? isMobile
-                      ? "0.85rem"
-                      : "1.2rem"
-                    : isMobile
-                      ? "0.65rem"
-                      : "0.75rem",
-                  title: isActive
-                    ? isMobile
-                      ? "0.85rem"
-                      : "1.2rem"
-                    : isMobile
-                      ? "0.7rem"
-                      : "0.8rem",
-                  category: isActive
-                    ? isMobile
-                      ? "0.8rem"
-                      : "1rem"
-                    : isMobile
-                      ? "0.6rem"
-                      : "0.7rem",
-                  film: isActive
-                    ? isMobile
-                      ? "0.75rem"
-                      : "0.85rem"
-                    : isMobile
-                      ? "0.55rem"
-                      : "0.65rem",
-                }
+              const slotStyle = slots[slot] || {
+                xFactor: 3,
+                scale: 0.6,
+                opacity: 0,
+                zIndex: 0,
+              }
 
-                return (
+              const xOffset = slotStyle.xFactor * GAP
+              const isActive = slot === 0
+
+              return (
+                <div
+                  key={i}
+                  onClick={() => handleSelect(i)}
+                  className="absolute top-1/2 left-1/2 cursor-pointer"
+                  style={{
+                    // width: CARD_W,
+                    // height: CARD_H,
+                    width: typeof CARD_W === "number" ? `${CARD_W}px` : CARD_W,
+                    height: typeof CARD_H === "number" ? `${CARD_H}px` : CARD_H,
+                    zIndex: slotStyle.zIndex,
+                    opacity: slotStyle.opacity,
+                    transform: `translateX(calc(-50% + ${xOffset}px)) translateY(-50%) scale(${slotStyle.scale})`,
+                    transition: "all 0.5s ease",
+                  }}
+                >
                   <div
-                    key={i}
-                    onClick={() => handleSelect(i)}
-                    className="absolute top-1/2 cursor-pointer"
-                    style={{
-                      width: style.w,
-                      height: style.h,
-                      opacity: style.opacity,
-                      transform: `translateX(${xOffset}px) translateY(-50%) scale(${style.scale})`,
-                      transition:
-                        "width 0.55s cubic-bezier(0.4,0,0.2,1), height 0.55s cubic-bezier(0.4,0,0.2,1), opacity 0.55s ease, transform 0.55s cubic-bezier(0.4,0,0.2,1)",
-                      transformOrigin: "left center",
-                    }}
+                    className={`flex h-full w-full items-center justify-center overflow-hidden border bg-card ${
+                      isActive
+                        ? "border-border/40 shadow-xl"
+                        : "border-border/20 shadow-md"
+                    }`}
                   >
-                    <div
-                      className={`ease flex h-full w-full items-center justify-center border bg-card transition-all hover:scale-105 ${
-                        isActive
-                          ? "border-border/30 shadow-md"
-                          : "border-border/30 shadow-sm"
-                      }`}
-                    >
-                      <div className="relative flex h-full w-full items-center justify-center">
-                        {/* Wreath image — sized to fill card with breathing room */}
-                        <div
-                          className="absolute"
-                          style={{
-                            width: wreath,
-                            height: wreath,
-                            transition: "width 0.55s ease, height 0.55s ease",
-                          }}
-                        >
-                          <Image
-                            src="/golden-laurel-wreath.png"
-                            alt="Laurel wreath"
-                            fill
-                            className="object-contain"
-                            sizes="300px"
-                          />
-                        </div>
+                    <div className="relative flex h-full w-full items-center justify-center">
+                      {/* ✅ BIGGER IMAGE (fixed issue) */}
+                      <div className="absolute aspect-square w-full">
+                        <Image
+                          src="/golden-laurel-wreath.png"
+                          alt="Laurel wreath"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
 
-                        {/* Text layered inside wreath ring */}
-                        <div
-                          className="relative z-10 flex flex-col items-center justify-center gap-0.5 text-center"
-                          style={{
-                            width: wreath * 0.58,
-                            transition: "width 0.55s ease",
-                          }}
+                      {/* ✅ CONTROLLED TEXT (not global h4 anymore) */}
+                      <div className="relative z-10 flex w-full flex-col items-center text-center leading-tight">
+                        {/* YEAR */}
+                        <span
+                          className="font-extrabold tracking-wide text-accent"
+                          style={{ fontSize: "clamp(0.65rem, 1vw, 0.95rem)" }}
                         >
-                          <span
-                            className="font-heading leading-none font-bold tracking-tight text-accent"
-                            style={{
-                              fontSize: fs.year,
-                              transition: "font-size 0.4s ease",
-                            }}
-                          >
-                            {award.year}
-                          </span>
-                          <p
-                            className="font-heading leading-tight font-bold tracking-tight text-foreground"
-                            style={{
-                              fontSize: fs.title,
-                              transition: "font-size 0.4s ease",
-                            }}
-                          >
-                            {award.title}
-                          </p>
-                          <p
-                            className="font-heading font-semibold tracking-tight text-primary"
-                            style={{
-                              fontSize: fs.category,
-                              transition: "font-size 0.4s ease",
-                            }}
-                          >
-                            {award.category}
-                          </p>
-                          <p
-                            className="font-heading font-bold tracking-tight text-muted-foreground"
-                            style={{
-                              fontSize: fs.film,
-                              transition: "font-size 0.4s ease",
-                            }}
-                          >
-                            {award.film}
-                          </p>
-                        </div>
+                          {award.year}
+                        </span>
+
+                        {/* TITLE */}
+                        <p
+                          className="font-bold text-foreground"
+                          style={{ fontSize: "clamp(0.6rem, 1.1vw, 0.95rem)" }}
+                        >
+                          {award.title}
+                        </p>
+
+                        {/* CATEGORY */}
+                        <p
+                          className="font-medium text-primary"
+                          style={{ fontSize: "clamp(0.55rem, 0.95vw, 0.8rem)" }}
+                        >
+                          {award.category}
+                        </p>
+
+                        {/* FILM */}
+                        <p
+                          className="text-muted-foreground"
+                          style={{ fontSize: "clamp(0.5rem, 0.85vw, 0.75rem)" }}
+                        >
+                          {award.film}
+                        </p>
                       </div>
                     </div>
                   </div>
-                )
-              })}
-            </div>
+                </div>
+              )
+            })}
           </div>
+
+          {/* NEXT */}
+          {!isMobile && (
+            <button
+              onClick={handleNext}
+              className="group z-10 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background shadow-sm hover:border-primary hover:bg-primary/5"
+            >
+              <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary" />
+            </button>
+          )}
+        </div>
+
+        {/* DOTS */}
+        <div className="flex gap-2">
+          {AWARDS.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => handleSelect(i)}
+              className="transition-all duration-300"
+              style={{
+                width: active === i ? 28 : 8,
+                height: 8,
+                borderRadius: 9999,
+                background:
+                  active === i ? "var(--color-primary)" : "var(--color-border)",
+              }}
+            />
+          ))}
         </div>
       </div>
     </section>

@@ -16,7 +16,7 @@ export function Director() {
     <section className="bg-secondary">
       <div className="container">
         <div className="mb-10 flex flex-col gap-2">
-          <span className="label text-primary">The Visionary</span>
+          <span className="label">The Visionary</span>
           <h2>Upendra Subba — Writer &amp; Director</h2>
         </div>
 

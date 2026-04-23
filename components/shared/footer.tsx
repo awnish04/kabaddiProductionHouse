@@ -1,7 +1,6 @@
 import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
 import { FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa"
+import { Mail, Phone, MapPin } from "lucide-react"
 
 const FOOTER_LINKS = {
   Films: [
@@ -21,6 +20,24 @@ const FOOTER_LINKS = {
     { label: "YouTube", href: "#", icon: FaYoutube },
   ],
 }
+
+const CONTACT_INFO = [
+  {
+    icon: Mail,
+    label: "info@kabaddifilms.com",
+    href: "mailto:info@kabaddifilms.com",
+  },
+  {
+    icon: Phone,
+    label: "+977 123 456 7890",
+    href: "tel:+9771234567890",
+  },
+  {
+    icon: MapPin,
+    label: "Kathmandu, Nepal",
+    href: "#",
+  },
+]
 
 export function Footer() {
   return (
@@ -82,15 +99,25 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Partners Column */}
+            {/* Contact Info Column */}
             <div className="flex flex-col gap-3">
               <p className="text-sm font-semibold tracking-wider text-white uppercase">
-                Partners
+                Contact Info
               </p>
-              <ul className="flex list-none flex-col gap-2 pl-0">
-                <li className="text-sm text-white/60">Baasuri Films</li>
-                <li className="text-sm text-white/60">Cinema Art</li>
-              </ul>
+              <div className="flex flex-col gap-3">
+                {CONTACT_INFO.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="flex items-center gap-3 text-sm text-white/60 no-underline transition-colors hover:text-primary"
+                  >
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/5">
+                      <item.icon className="h-4 w-4" />
+                    </div>
+                    <span>{item.label}</span>
+                  </Link>
+                ))}
+              </div>
             </div>
 
             {/* Connect Column */}

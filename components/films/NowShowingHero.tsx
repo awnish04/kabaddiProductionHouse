@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Clock, Film as FilmIcon } from "lucide-react"
+import { Clock, Info } from "lucide-react"
 import type { Film } from "@/lib/films-data"
 
 interface NowShowingHeroProps {
@@ -31,15 +31,13 @@ export function NowShowingHero({ film }: NowShowingHeroProps) {
         <div className="w-full">
           <div className="max-w-3xl space-y-4 text-white">
             {/* Badge */}
-            <Badge className="label bg-accent text-accent-foreground">
-              {film.badge}
-            </Badge>
+            <Badge className="label bg-accent">{film.badge}</Badge>
 
             {/* Title */}
             <h1 className="text-white drop-shadow-lg">{film.title}</h1>
 
             {/* Meta Info */}
-            <div className="label flex flex-wrap items-center gap-3 text-white/80">
+            <div className="label flex flex-wrap items-center gap-3">
               <span className="font-medium">{film.year}</span>
               <span className="text-white/40">•</span>
               {film.runtime && (
@@ -88,12 +86,12 @@ export function NowShowingHero({ film }: NowShowingHeroProps) {
             {/* CTAs */}
 
             <div className="flex w-full flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg" className="bg-accent">
+              <Button variant="default" asChild size="lg">
                 <Link
                   href={`/films/${film.slug}`}
                   className="flex items-center gap-2"
                 >
-                  <FilmIcon className="h-5 w-5" />
+                  <Info />
                   View Details
                 </Link>
               </Button>

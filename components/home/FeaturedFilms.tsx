@@ -2,7 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 
 const FEATURED_FILMS = [
@@ -20,7 +20,7 @@ const FEATURED_FILMS = [
     title: "Mansara",
     year: "2024",
     synopsis:
-      "A social drama exploring ethnic identities, fertility, and migration in the hills of Nepal.",
+      "A social drama exploring ethnic identities, fertility, and migration in the hills of Nepal.migration in the hills of Nepal.",
     badge: "Now Showing",
     poster: "/Mansara_2024_1.jpg",
   },
@@ -49,7 +49,7 @@ export function FeaturedFilms() {
     <section className="bg-secondary" id="featured-films">
       <div className="container">
         <div className="mb-10 flex flex-col gap-2">
-          <span className="label text-primary">Our Films</span>
+          <span className="label">Our Films</span>
           <h2>Featured Projects</h2>
         </div>
 
@@ -59,7 +59,7 @@ export function FeaturedFilms() {
               key={film.title}
               className="group overflow-hidden border-border bg-card transition-shadow hover:shadow-lg"
             >
-              <AspectRatio ratio={2 / 3}>
+              <AspectRatio ratio={3 / 4}>
                 <Image
                   src={film.poster}
                   alt={`${film.title} poster`}
@@ -69,22 +69,22 @@ export function FeaturedFilms() {
                 />
               </AspectRatio>
 
-              <CardContent className="flex flex-col gap-2 p-4">
+              <CardContent className="flex flex-col gap-1">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-muted-foreground">
+                  <span className="text-sm text-muted-foreground">
                     {film.year}
                   </span>
-                  <Badge variant="secondary" className="text-xs">
-                    {film.badge}
-                  </Badge>
+                  <Badge className="label bg-primary">{film.badge}</Badge>
                 </div>
-                {/* <h4 className="leading-snug">{film.title}</h4> */}
-                <h4 className="group-hover:text-primary">
+                <CardTitle className="group-hover:text-primary">
                   {film.title}
-                </h4>
+                </CardTitle>
                 <p className="line-clamp-3 text-sm text-muted-foreground">
                   {film.synopsis}
                 </p>
+              </CardContent>
+
+              <CardFooter>
                 <Button
                   asChild
                   variant="ghost"
@@ -93,7 +93,7 @@ export function FeaturedFilms() {
                 >
                   <Link href={`/films/${film.slug}`}>View Details →</Link>
                 </Button>
-              </CardContent>
+              </CardFooter>
             </Card>
           ))}
         </div>

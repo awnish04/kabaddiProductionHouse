@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { FilmIcon, Group } from "lucide-react"
 
 export function DirectorSpotlight() {
   return (
@@ -35,7 +36,7 @@ export function DirectorSpotlight() {
           </Card>
           {/* Right — text */}
           <div className="flex flex-col gap-2">
-            <span className="label text-primary">Behind the Scenes</span>
+            <span className="label">Behind the Scenes</span>
             <h2>Where stories come to life</h2>
             <p className="text-muted-foreground">
               Step into the world of Kabaddi Films and witness the artistry,
@@ -46,14 +47,18 @@ export function DirectorSpotlight() {
             </p>
 
             <div className="flex w-full flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg" className="bg-accent">
+              <Button variant="default" asChild size="lg">
                 <Link href="/about" className="flex items-center gap-2">
+                  <Group />
                   Meet the Team
                 </Link>
               </Button>
 
-              <Button asChild size="lg" variant="outline">
-                <Link href="/films">Explore Our Films</Link>
+              <Button variant="outline" asChild size="lg">
+                <Link href="/films" className="flex items-center gap-2">
+                  <FilmIcon />
+                  Explore Our Films
+                </Link>
               </Button>
             </div>
           </div>

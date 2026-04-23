@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Clock, Play } from "lucide-react"
+import { Clock, Info, Play } from "lucide-react"
 import type { Film } from "@/lib/films-data"
 
 interface AllFilmsGridProps {
@@ -130,9 +130,10 @@ export function AllFilmsGrid({ films }: AllFilmsGridProps) {
                       <div className="flex gap-2 pt-2">
                         {film.fullMovieUrl && (
                           <Button
+                            variant="default"
                             asChild
                             size="sm"
-                            className="flex-1 bg-accent text-accent-foreground hover:bg-accent/90"
+                            className="flex-1"
                           >
                             <Link
                               href={film.fullMovieUrl}
@@ -140,22 +141,23 @@ export function AllFilmsGrid({ films }: AllFilmsGridProps) {
                               rel="noopener noreferrer"
                               className="flex items-center justify-center gap-1"
                             >
-                              <Play className="h-4 w-4" />
+                              <Play />
                               Watch
                             </Link>
                           </Button>
                         )}
 
                         <Button
+                          variant="outline"
                           asChild
                           size="sm"
-                          variant="outline"
                           className="flex-1"
                         >
                           <Link
                             href={`/films/${film.slug}`}
                             className="flex items-center justify-center"
                           >
+                            <Info/>
                             Details
                           </Link>
                         </Button>

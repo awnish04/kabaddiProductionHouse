@@ -41,7 +41,7 @@ export function Mission() {
           {/* RIGHT CONTENT */}
           <div className="flex flex-col gap-6">
             {/* Label */}
-            <span className="label text-primary">Our Mission</span>
+            <span className="label">Our Mission</span>
 
             {/* Heading → global h2 */}
             <h2>
