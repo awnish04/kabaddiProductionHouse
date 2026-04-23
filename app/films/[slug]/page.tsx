@@ -235,7 +235,7 @@ export default async function FilmDetailsPage({
         <div className="container">
           <h2>Gallery</h2>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 py-4">
             {film.gallery.map((img, i) => (
               <div key={i} className="relative aspect-video overflow-hidden">
                 <Image src={img} alt="" fill className="object-cover" />

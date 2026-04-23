@@ -60,9 +60,9 @@ export function Footer() {
           </div>
 
           {/* Link Grid */}
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {/* Films Column */}
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col">
               <p className="text-sm font-semibold tracking-wider text-white uppercase">
                 Films
               </p>
@@ -71,7 +71,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-white/60 no-underline transition-colors hover:text-primary"
+                      className="text-xs text-white/60 no-underline transition-colors hover:text-primary lg:text-sm"
                     >
                       {link.label}
                     </Link>
@@ -90,7 +90,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-white/60 no-underline transition-colors hover:text-primary"
+                      className="text-xs text-white/60 no-underline transition-colors hover:text-primary lg:text-sm"
                     >
                       {link.label}
                     </Link>
@@ -109,10 +109,10 @@ export function Footer() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="flex items-center gap-3 text-sm text-white/60 no-underline transition-colors hover:text-primary"
+                    className="flex gap-1 text-xs text-white/60 no-underline transition-colors hover:text-primary lg:text-sm"
                   >
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/5">
-                      <item.icon className="h-4 w-4" />
+                    <div className="flex items-center justify-center rounded-full">
+                      <item.icon className="h-3 w-3" />
                     </div>
                     <span>{item.label}</span>
                   </Link>
@@ -130,7 +130,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-white/60 no-underline transition-colors hover:text-primary"
+                      className="text-xs text-white/60 no-underline transition-colors hover:text-primary lg:text-sm"
                     >
                       {link.label}
                     </Link>
@@ -141,15 +141,12 @@ export function Footer() {
           </div>
 
           {/* Bottom Copyright */}
-          <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-8 text-xs text-white/50 sm:flex-row">
-            <p>
-              &copy; {new Date().getFullYear()} Kabaddi Films. All rights
-              reserved.
-            </p>
-            <p>
-              Produced by{" "}
-              <span className="font-medium text-white/70">Ram Babu Gurung</span>
-            </p>
+          <div className="mt-12 border-t border-white/20 pt-6">
+            <div className="flex flex-col items-center gap-2 text-center">
+              <p className="text-white sm:flex-row sm:justify-between sm:text-left">
+                © {new Date().getFullYear()} KabaddiFilms. All rights reserved.
+              </p>
+            </div>
           </div>
         </div>
       </div>
